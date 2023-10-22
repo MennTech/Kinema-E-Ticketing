@@ -46,126 +46,108 @@ Route::get('/', function () {
         ],
         'table_value' => [
             [
-                'no' => '1',
                 'name' => 'Trisna',
                 'email' => 'utama@gmail.com',
                 'no_telp' => '081234567891',
                 'create_date' => '01-01-2023',
             ],
             [
-                'no' => '2',
                 'name' => 'John',
                 'email' => 'john@example.com',
                 'no_telp' => '081234567892',
                 'create_date' => '02-01-2023',
             ],
             [
-                'no' => '3',
                 'name' => 'Sarah',
                 'email' => 'sarah@example.com',
                 'no_telp' => '081234567893',
                 'create_date' => '03-01-2023',
             ],
             [
-                'no' => '4',
                 'name' => 'David',
                 'email' => 'david@example.com',
                 'no_telp' => '081234567894',
                 'create_date' => '04-01-2023',
             ],
             [
-                'no' => '5',
                 'name' => 'Linda',
                 'email' => 'linda@example.com',
                 'no_telp' => '081234567895',
                 'create_date' => '05-01-2023',
             ],
             [
-                'no' => '6',
                 'name' => 'Michael',
                 'email' => 'michael@example.com',
                 'no_telp' => '081234567896',
                 'create_date' => '06-01-2023',
             ],
             [
-                'no' => '7',
                 'name' => 'Emily',
                 'email' => 'emily@example.com',
                 'no_telp' => '081234567897',
                 'create_date' => '07-01-2023',
             ],
             [
-                'no' => '8',
                 'name' => 'Robert',
                 'email' => 'robert@example.com',
                 'no_telp' => '081234567898',
                 'create_date' => '08-01-2023',
             ],
             [
-                'no' => '9',
                 'name' => 'Jennifer',
                 'email' => 'jennifer@example.com',
                 'no_telp' => '081234567899',
                 'create_date' => '09-01-2023',
             ],
             [
-                'no' => '10',
                 'name' => 'Daniel',
                 'email' => 'daniel@example.com',
                 'no_telp' => '081234567890',
                 'create_date' => '10-01-2023',
             ],
             [
-                'no' => '11',
                 'name' => 'Lisa',
                 'email' => 'lisa@example.com',
                 'no_telp' => '081234567891',
                 'create_date' => '11-01-2023',
             ],
             [
-                'no' => '12',
                 'name' => 'William',
                 'email' => 'william@example.com',
                 'no_telp' => '081234567892',
                 'create_date' => '12-01-2023',
             ],
             [
-                'no' => '13',
                 'name' => 'Mia',
                 'email' => 'mia@example.com',
                 'no_telp' => '081234567893',
                 'create_date' => '13-01-2023',
             ],
             [
-                'no' => '14',
                 'name' => 'Richard',
                 'email' => 'richard@example.com',
                 'no_telp' => '081234567894',
                 'create_date' => '14-01-2023',
             ],
             [
-                'no' => '15',
                 'name' => 'Jessica',
                 'email' => 'jessica@example.com',
                 'no_telp' => '081234567895',
                 'create_date' => '15-01-2023',
             ],
             [
-                'no' => '16',
                 'name' => 'Christopher',
                 'email' => 'christopher@example.com',
                 'no_telp' => '081234567896',
                 'create_date' => '16-01-2023',
             ],
             [
-                'no' => '17',
                 'name' => 'Maria',
                 'email' => 'maria@example.com',
                 'no_telp' => '081234567897',
                 'create_date' => '17-01-2023',
             ],
             [
-                'no' => '18',
                 'name' => 'Thomas',
                 'email' => 'thomas@example.com',
                 'no_telp' => '081234567898',
@@ -183,7 +165,6 @@ Route::get('/Data-Film', function () {
         'table_film'=> 
         [
             [
-                'no' => '1',
                 'poster_film' => 'poster-film1.jpeg',
                 'judul_film' => 'Avengers: Endgame',
                 'genre' => 'Action, Adventure, Drama',
@@ -193,7 +174,6 @@ Route::get('/Data-Film', function () {
                 'actor' => 'Robert Downey Jr., Chris Evans, Mark Ruffalo',
             ],
             [
-                'no' => '2',
                 'poster_film' => 'poster-film1.jpeg',
                 'judul_film' => 'The Shawshank Redemption',
                 'genre' => 'Drama',
@@ -203,7 +183,6 @@ Route::get('/Data-Film', function () {
                 'actor' => 'Tim Robbins, Morgan Freeman, Bob Gunton',
             ],
             [
-                'no' => '3',
                 'poster_film' => 'poster-film1.jpeg',
                 'judul_film' => 'The Godfather',
                 'genre' => 'Crime, Drama',
@@ -213,7 +192,6 @@ Route::get('/Data-Film', function () {
                 'actor' => 'Marlon Brando, Al Pacino, James Caan',
             ],
             [
-                'no' => '4',
                 'poster_film' => 'poster-film1.jpeg',
                 'judul_film' => 'Pulp Fiction',
                 'genre' => 'Crime, Drama',
@@ -223,7 +201,6 @@ Route::get('/Data-Film', function () {
                 'actor' => 'John Travolta, Uma Thurman, Samuel L. Jackson',
             ],
             [
-                'no' => '5',
                 'poster_film' => 'poster-film1.jpeg',
                 'judul_film' => 'The Dark Knight',
                 'genre' => 'Action, Crime, Drama',
@@ -233,7 +210,6 @@ Route::get('/Data-Film', function () {
                 'actor' => 'Christian Bale, Heath Ledger, Aaron Eckhart',
             ],
             [
-                'no' => '6',
                 'poster_film' => 'poster-film1.jpeg',
                 'judul_film' => 'Schindler\'s List',
                 'genre' => 'Biography, Drama, History',
@@ -243,7 +219,6 @@ Route::get('/Data-Film', function () {
                 'actor' => 'Liam Neeson, Ralph Fiennes, Ben Kingsley',
             ],
             [
-                'no' => '7',
                 'poster_film' => 'poster-film1.jpeg',
                 'judul_film' => 'The Lord of the Rings: The Return of the King',
                 'genre' => 'Action, Adventure, Drama',
@@ -253,7 +228,6 @@ Route::get('/Data-Film', function () {
                 'actor' => 'Elijah Wood, Viggo Mortensen, Ian McKellen',
             ],
             [
-                'no' => '8',
                 'poster_film' => 'poster-film1.jpeg',
                 'judul_film' => 'Fight Club',
                 'genre' => 'Drama',
@@ -263,7 +237,6 @@ Route::get('/Data-Film', function () {
                 'actor' => 'Brad Pitt, Edward Norton, Meat Loaf',
             ],
             [
-                'no' => '9',
                 'poster_film' => 'poster-film1.jpeg',
                 'judul_film' => 'Forrest Gump',
                 'genre' => 'Drama, Romance',
@@ -273,7 +246,6 @@ Route::get('/Data-Film', function () {
                 'actor' => 'Tom Hanks, Robin Wright, Gary Sinise',
             ],
             [
-                'no' => '10',
                 'poster_film' => 'poster-film1.jpeg',
                 'judul_film' => 'Inception',
                 'genre' => 'Action, Adventure, Sci-Fi',
@@ -288,6 +260,89 @@ Route::get('/Data-Film', function () {
 
 Route::get('/Data-Makanan', function () {
     return view('admin/dataMakanan',[
+        'title' => 'data_makanan',
+        'foto_profile' => 'user2.jpg',
+        'name' => 'Budi Subawa',
+        'tabel_makanan' =>
+        [
+            [
+                'gambar_makanan' => 'makanan1.jpg',
+                'nama_makanan' => 'Popcorn',
+                'stock' => '50',
+                'harga' => '20000',
+            ],
+            [
+                'gambar_makanan' => 'makanan1.jpg',
+                'nama_makanan' => 'Nachos',
+                'stock' => '30',
+                'harga' => '25000',
+            ],
+            [
+                'gambar_makanan' => 'makanan1.jpg',
+                'nama_makanan' => 'Hot Dog',
+                'stock' => '40',
+                'harga' => '30000',
+            ],
+            [
+                'gambar_makanan' => 'makanan1.jpg',
+                'nama_makanan' => 'Ice Cream',
+                'stock' => '25',
+                'harga' => '18000',
+            ],
+            [
+                'gambar_makanan' => 'makanan1.jpg',
+                'nama_makanan' => 'Soft Drink',
+                'stock' => '60',
+                'harga' => '15000',
+            ],
+            [
+                'gambar_makanan' => 'makanan1.jpg',
+                'nama_makanan' => 'Candy',
+                'stock' => '35',
+                'harga' => '10000',
+            ],
+            [
+                'gambar_makanan' => 'makanan1.jpg',
+                'nama_makanan' => 'Pretzel',
+                'stock' => '20',
+                'harga' => '22000',
+            ],
+            [
+                'gambar_makanan' => 'makanan1.jpg',
+                'nama_makanan' => 'Churros',
+                'stock' => '30',
+                'harga' => '28000',
+            ],
+        ]
+    ]);
+});
+
+Route::get('/Tambah-Film', function () {
+    return view('admin/tambahFilm',[
+        'title' => 'data_film',
+        'foto_profile' => 'user2.jpg',
+        'name' => 'Budi Subawa',
+    ]);
+});
+
+Route::get('/Edit-Film', function () {
+    return view('admin/editFilm',[
+        'title' => 'data_film',
+        'foto_profile' => 'user2.jpg',
+        'name' => 'Budi Subawa',
+    ]);
+});
+
+Route::get('/Tambah-Makanan', function () {
+    return view('admin/tambahMakanan',[
+        'title' => 'data_makanan',
+        'foto_profile' => 'user2.jpg',
+        'name' => 'Budi Subawa',
+    ]);
+});
+
+Route::get('/Edit-Makanan', function () {
+    return view('admin/editMakanan',[
         'title' => 'data_makanan',
         'foto_profile' => 'user2.jpg',
         'name' => 'Budi Subawa',

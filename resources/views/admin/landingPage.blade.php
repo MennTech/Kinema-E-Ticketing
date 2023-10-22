@@ -1,25 +1,14 @@
 @extends('admin/dashboard')
 
 @section('content')
-    {{-- <style>
-        h1{
-            margin-top: 6%;
-        }
-        img{
-            width: 80px;
-            margin-bottom: 16px;
-            padding-top: 6px;
-            border-radius: 10px;
-        }
-    </style> --}}
     <div class="content">
         <h1 class="text-primary-emphasis" style="margin-top: 75px">Dashboard</h1>
         <div class="d-flex flex-wrap justify-content-between align-items-center me-3">
             @foreach ($card as $item)
-                <div class="card" style="width: 20rem">
+                <div class="card" style="width: 18rem">
                     <div class="card-body">
                         <div class="row inline g-3">
-                            <div class="col-4">
+                            <div class="col-4 p-0">
                                 <img src="img/{{ $item['images'] }}" class="border rounded w-100">
                             </div>
                             <div class="col-auto pt-3">
@@ -52,7 +41,7 @@
                     <tbody>
                         @foreach ($table_value as $item)
                         <tr>
-                            <th>{{ $item['no'] }}</th>
+                            <th>{{ $loop->iteration }}</th>
                             <td>{{ $item['name'] }}</td>
                             <td>{{ $item['email'] }}</td>
                             <td>{{ $item['no_telp'] }}</td>
@@ -63,31 +52,6 @@
                     </tbody>
                 </table>
             </div>
-
-            {{-- <div class="table-header">
-                <table class="table text-center display" id="myTable">
-                    <thead>
-                        <tr>
-                            <th scope="col">Name</th>
-                            <th scope="col">Email</th>
-                            <th scope="col">Create Date</th>
-                            <th scope="col">Action</th>
-                        </tr>
-                    </thead>
-                </table>
-            </div>
-            <div class="overflow-y-scroll" id="table-overflow">
-                <table class="table text-center">
-                    @foreach ($table_value as $item)
-                        <tr>
-                            <th scope="row">{{ $item['name'] }}</th>
-                            <td>{{ $item['email'] }}</td>
-                            <td>{{ $item['create_date'] }}</td>
-                            <td><button class="btn btn-danger" type="button">Delete</button></td>
-                        </tr>
-                    @endforeach
-                </table>
-            </div> --}}
         </form>
     </div>
 @endsection

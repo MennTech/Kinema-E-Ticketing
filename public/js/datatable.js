@@ -1,5 +1,6 @@
 $(document).ready(function () {
     $("#tabelData").DataTable({
+        responsive: true,
         columnDefs: [
             { className: "dt-center", targets: "_all" },
             // { "width": "auto", "targets": [1], "orderable":false },
