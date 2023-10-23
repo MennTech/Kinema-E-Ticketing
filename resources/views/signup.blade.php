@@ -9,7 +9,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </head>
 
-<body>
+<body style="background-color: #EFEFEF;">
     <!-- navbar -->
     <nav class="navbar bg-body-tertiary" style="background-color: #FFFFFF;">
         <nav class="navbar bg-body-tertiary fixed-top">
@@ -55,30 +55,32 @@
         </nav>
     </nav>
 
-    <div class="container-fluid d-flex justify-content-center align-items-center" style="height: 650px;">
-        <div class="card shadow" style="width: 410px;">
+    <!-- isi sign up -->
+    <div class="container-fluid d-flex justify-content-center align-items-center" style="height: 700px;">
+        <div class="card shadow" style="width: 510px;">
             <div class="card-body">
                 <h4 class="text-center" style="padding: 10px; color: #80B3FF; font-weight: bold; font-size: 45px ">SIGN UP</h4>
                 <form>
                     <div class="mb-3 mt-4">
-                        <label for="exampleInputEmail1" class="form-label">Nama</label>
-                        <input type="email" class="form-control" id="exampleInputName" placeholder= "Input Nama">
+                        <label for="inputNama1" class="form-label">Nama User</label>
+                        <input type="email" class="form-control" id="exampleInputName" placeholder= "Input Nama User">
                     </div>
-                    <div class="mb-3 mt-4">
-                        <label for="exampleInputPassword1" class="form-label">Email</label>
-                        <input type="password" class="form-control" id="exampleInputEmail" placeholder="Input Email">
+                    <div class="mb-3">
+                        <label for="inputNama1" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="exampleInputEmail" placeholder= "Input Email">
                     </div>
-                    <div class="mb-3 mt-4">
-                        <label for="exampleInputPassword1" class="form-label">Password</label>
-                        <input type="password" class="form-control" id="exampleInputEmail" placeholder="Input Password">
+                    <div class="mb-3">
+                        <label for="inputPassword1" class="form-label">Password</label>
+                        <div class="input-group">
+                            <input type="password" class="form-control" id="exampleInputPassword" placeholder="Input Password" required />
+                            <!-- <span class="input-group-text" id="showPasswordToggle"><i class="fas fa-eye"></i></span> -->
+                        </div>
                     </div>
-                    <div class="mb-3 mt-4">
-                        <label for="exampleInputPassword1" class="form-label">No Telepon</label>
-                        <input type="password" class="form-control" id="exampleInputEmail" placeholder="Input No Telepon">
-                        <!-- data-bs-toggle="tooltip" data-bs-title="Default tooltip" -->
-                        <!-- <div id="signup" class= "form-text" href= "signup.blade.php">Belum punya akun? Klik disini</div>  -->
+                    <div class="mb-3">
+                        <label for="inputNotelpon1" class="form-label">No Telepon</label>
+                        <input type="notelp" class="form-control" id="exampleInputNoTelpon" placeholder="Input No Telepon">
                     </div>
-                    <a id="emailHelp" class="form-text" href="login.blade.php">Sudah buat akun? Log In</a>
+                    <a id="emailHelp" class="form-text" href="{{  url('login') }}">Sudah buat akun? Log In</a>
                     <button type="login" class="btn btn-primary float-end">Login</button>
                 </form>
             </div>
