@@ -63,8 +63,8 @@
                 <h4 class="text-center" style="padding: 10px; color: #80B3FF; font-weight: bold; font-size: 45px ">LOGIN</h4>
                 <form>
                     <div class="mb-3 mt-4">
-                        <label for="exampleInputEmail1" class="form-label">Username / Email</label>
-                        <input type="email" class="form-control" id="exampleInputEmail" placeholder= "Input Username / Email">
+                        <label for="exampleInputEmail1" class="form-label">Username or Email</label>
+                        <input type="email" class="form-control" id="exampleInputEmail" placeholder= "Input Username or Email">
                     </div>
                     <div class="mb-3">
                         <label for="exampleInputPassword1" class="form-label">Password</label>
