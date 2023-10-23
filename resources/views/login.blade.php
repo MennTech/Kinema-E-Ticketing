@@ -72,8 +72,10 @@
                     </div>
 
                     <a id="emailHelp" class="form-text" href="#">Lupa Password?</a>
-                    <p><a id="emailHelp" class="form-text" href="signup.blade.php">Belum buat Akun? Sign Up</a></p>
-                    <button type="login" class="btn btn-primary float-end">Login</button>
+                    <p><a id="emailHelp" class="form-text" href="{{  url('signup')  }}">Belum buat Akun? Sign Up</a></p>
+                    <button type="login" class="btn btn-primary float-end">
+                        <a href= "{{  url('welcome')  }}" style="text-decoration: none; color: white;">Login</a>
+                    </button>
                 </form>
             </div>
         </div>
