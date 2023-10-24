@@ -67,13 +67,30 @@
                     </div>
                     <div class="mb-3">
                         <label for="inputNama1" class="form-label">Email</label>
-                        <input type="email" class="form-control" id="exampleInputEmail" placeholder= "Input Email">
+                        <input type="email" class="form-control" id="exampleInputEmail" placeholder="Input Email" onblur="checkEmailValidity(this)">
+                        <div id="error-message" style="color: red;"></div>
                     </div>
+
+                    <script>
+                        function checkEmailValidity(input) {
+                            const email = input.value;
+                            const errorMessage = document.getElementById('error-message');
+
+                            if (email.includes('@')) {
+                                // Alamat email valid
+                                errorMessage.textContent = '';
+                            } else {
+                                // Alamat email tidak valid
+                                errorMessage.textContent = 'Alamat email harus mengandung karakter "@"';
+                                input.focus();
+                            }
+                        }
+                    </script>
+
                     <div class="mb-3">
                         <label for="inputPassword1" class="form-label">Password</label>
                         <div class="input-group">
                             <input type="password" class="form-control" id="exampleInputPassword" placeholder="Input Password" required />
-                            <!-- <span class="input-group-text" id="showPasswordToggle"><i class="fas fa-eye"></i></span> -->
                         </div>
                     </div>
                     <div class="mb-3">
@@ -81,7 +98,9 @@
                         <input type="notelp" class="form-control" id="exampleInputNoTelpon" placeholder="Input No Telepon">
                     </div>
                     <a id="emailHelp" class="form-text" href="{{  url('login') }}">Sudah buat akun? Log In</a>
-                    <button type="login" class="btn btn-primary float-end">Login</button>
+                    <button type="login" class="btn btn-primary float-end">
+                        <a href= "{{  url('login')  }}" style="text-decoration: none; color: white;">Sign Up</a>
+                    </button>
                 </form>
             </div>
         </div>
