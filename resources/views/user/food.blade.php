@@ -12,20 +12,26 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
     crossorigin="anonymous">
     <style>
-        .header{
-            background-color: white;
-            height: 20%;
+        header{
+            position: relative;
+            z-index: 1020;
+            background: white;
         }
-        .flex-container-full{
-            display: flex;
+        .narbar-expand-x1{
             flex-wrap: nowrap;
+            justify-content: flex-start;
+        }
+        .container-fluid{
+            display: flex;
+            flex-wrap: inherit;
             align-items: center;
             justify-content: space-between;
         }
-        .menu{
-            margin-right: 20px;
-            margin-top: 10px;
-            display: flex;
+        .navbar-brand-item{
+            width: 150px;
+        }
+        .avatar-img{
+            width: 20%;
         }
         img{
             vertical-align: middle;
@@ -85,34 +91,68 @@
     </style>
 </head>
 <body style="background-color: #FFDFDF;">
-    <nav class="header">
-        <div class="flex-container-full">
-            <div class="item-group">
-                <div class="item-logo">
-                    <img width="146" height="100" src="{{ asset('img/KINEMA-logo.png') }}" alt="Logo">
-                </div>
-            </div>
-            <ul class="menu">
-                <li><a href="{{ url('welcome') }}">Beranda</a></li>
-                <li><a href="{{ url('food') }}">Food</a></li>
-            </ul>
-            <form class="d-flex" role="search">
-                <input class="form-control me-2" type="search" placeholder="Input" aria-label="Search">
-                <button type="button" class="btn btn-primary">
-                    <i class="fas fa-search"></i>
+    <!-- navbar -->
+    <header class="navbar-light navbar-sticky header-static">
+        <!-- Nav START -->
+        <nav class="navbar navbar-expand-xl">
+            <div class="container-fluid px-3 px-xl-5">
+                <!-- Logo START -->
+                <a class="navbar-brand" href="index.html">
+                    <img class="light-mode-item navbar-brand-item" src="{{ asset('img/KINEMA-logo.png') }}" alt="logo">
+                </a>
+                <!-- Logo END -->
+
+                <!-- Responsive navbar toggler -->
+                <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-animation">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </span>
                 </button>
-            </form>
-            <button type="button" class="btn btn-primary">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
-                    <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
-                    <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
-                </svg>
-                <ul class="profile">
-                    <li><a href="{{ url('profile') }}"></a></li>
-                </ul>
-            </button>
-        </div>
-    </nav>
+
+                <!-- Main navbar START -->
+                <div class="navbar-collapse w-100 collapse" id="navbarCollapse">
+                    <!-- Nav Main menu START -->
+                    <ul class="navbar-nav navbar-nav-scroll me-auto">
+                        <!-- Nav item 1 Home -->
+                        <li class="nav-item">
+                            <a href="{{ url('home') }}" class="nav-link">Home</a>
+                        </li>
+
+                        <!-- Nav item 2 Food -->
+                        <li class="nav-item">
+                            <a href="{{ url('food') }}" class="nav-link">Food</a>
+                        </li>
+                    <!-- Nav Main menu END -->
+
+                    <!-- Nav Search START -->
+                    <div class="nav my-3 my-xl-0 px-4 flex-nowrap align-items-center">
+                        <div class="nav-item w-100">
+                            <form class="position-relative">
+                                <input class="form-control pe-5 bg-transparent" type="search" placeholder="Search" aria-label="Search">
+                                <button class="bg-transparent p-2 position-absolute top-50 end-0 translate-middle-y border-0 text-primary-hover text-reset" type="submit">
+                                    <i class="fas fa-search fs-6 "></i>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                    <!-- Nav Search END -->
+                </div>
+                <!-- Main navbar END -->
+
+                <!-- Profile START -->
+                <div class="ms-1 ms-lg-0">
+                    <a class="avatar avatar-sm p-0" href="{{ url('profile') }}" id="profile" role="button" data-bs-auto-close="outside" data-bs-display="static" data-bs-toggle="" aria-expanded="false">
+                        <img class="avatar-img rounded-circle" src="{{ asset('img/profile.png') }}" alt="avatar">
+                    </a>
+                </div>
+                <!-- Profile START -->
+            </div>
+        </nav>
+        <!-- Nav END -->
+    </header>
+
     <div class="main">
         <div class="title">
             <p style="margin-bottom: 1px"><span>Food & Bevarage - PAKUWOM MALL KINEMA</span></p>
