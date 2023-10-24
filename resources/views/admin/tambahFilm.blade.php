@@ -37,9 +37,13 @@
                             <label for="posterInput" class="form-label">Poster Film</label>
                             <input type="file" class="form-control" id="posterInput" accept=".jpg, .jpeg">
                         </div>
-                        <div class="col-4">
+                        <div class="col-2">
                             <label for="durasInput" class="form-label">Durasi Film</label>
                             <input type="number" class="form-control" id="durasiInput">
+                        </div>
+                        <div class="col-2">
+                            <label for="usiaInput" class="form-label">Rating Usia</label>
+                            <input type="number" class="form-control" id="usiaInput">
                         </div>
                     </div>
                     <div class="row mb-3">

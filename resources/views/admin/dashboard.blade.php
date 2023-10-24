@@ -19,7 +19,12 @@
     <link rel="stylesheet" href="css/sidebar.css">
     <link rel="stylesheet" href="css/datatable.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.css" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.5.0/css/responsive.bootstrap5.min.css">
+    {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css"> --}}
+    {{-- <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css"> --}}
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
@@ -28,7 +33,7 @@
 <body id="body-pd">    
     <header class="header" id="header">
         <div class="header_toggle"> <i class='bx bx-menu' id="header-toggle"></i> </div>
-        <div class="border p-2 rounded" style="background-color: #4323c3">
+        <div class="border p-2 rounded" style="background-color: #2447c7">
             <a href="#" class="d-flex align-items-center"> 
                 <i class='bx bx-log-out nav_icon' style="color: white"></i> 
                 <span class="nav_name" style="margin: 0px 5px; color: white">SignOut</span> 
@@ -59,7 +64,7 @@
     
     @yield('content')
    
-    <footer class="mt-5">
+    {{-- <footer class="mt-5">
         <div class="container">
             <div class="row">
                 <div class="col-md-4">
@@ -76,49 +81,30 @@
                 </div>
             </div>
         </div>
-    </footer>
+    </footer> --}}
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
     </script>
     <script src="{{ asset('js/sidebar.js') }}"></script>
+
     <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.js"></script>
+    {{-- <script src="https://code.jquery.com/jquery-3.7.0.js"></script> --}}
+    {{-- <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script> --}}
+    {{-- <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script> --}}
+    <script src="https://cdn.datatables.net/responsive/2.5.0/js/dataTables.responsive.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.5.0/js/responsive.bootstrap5.min.js"></script>
+
     <script src="{{ asset('js/datatable.js') }}"></script>
+
     <script>
         $(document).ready(function() {
             $('#genreInput').select2({
+                width: 'resolve',
                 placeholder: 'Genre Film',
                 allowClear: true
-        });
-        });
-    </script>
-
-    <script>
-        $(document).ready(function() {
-            $('#detailFilm').click(function() {
-                var judul = $(this).parents('tr').attr('data-judul');
-                var genre = $(this).parents('tr').attr('data-genre');
-                var durasi = $(this).parents('tr').attr('data-durasi');
-                var sutradara = $(this).parents('tr').attr('data-sutradara');
-                var actor = $(this).parents('tr').attr('data-actor');
-                var sinopsis = $(this).parents('tr').attr('data-sinopsis');
-                var poster = $(this).parents('tr').attr('data-poster'); 
-                $('#modalPoster').attr('src', 'img/' + poster);
-                $('#modalJudul').text(judul);
-                $('#modalGenre').text(genre);
-                $('#modalDurasi').text(durasi);
-                $('#modalSutradara').text(sutradara);
-                $('#modalActor').text(actor);
-                $('#modalSinopsis').text(sinopsis);
-
-
-                $('#detailsFilmModal').modal('show');
             });
         });
-    </script>
-
-    <script>
-        
     </script>
 
     <script>

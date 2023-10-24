@@ -2,7 +2,7 @@
 :root {
     --header-height: 3rem;
     --nav-width: 68px;
-    --first-color: #4723d9;
+    --first-color: #f7f6fb;
     --first-color-light: #afa5d9;
     --white-color: #f7f6fb;
     --body-font: "Nunito", sans-serif;
@@ -21,6 +21,8 @@ body {
     font-family: var(--body-font);
     font-size: var(--normal-font-size);
     transition: 0.5s;
+    background-color: #F2F7FF;
+    font-weight: bold;
 }
 a {
     text-decoration: none;
@@ -35,12 +37,12 @@ a {
     align-items: center;
     justify-content: space-between;
     padding: 0 1rem;
-    background-color: var(--white-color);
+    background-color: #ffff;
     z-index: var(--z-fixed);
     transition: 0.5s;
 }
 .header_toggle {
-    color: var(--first-color);
+    color: #2447c7;
     font-size: 1.5rem;
     cursor: pointer;
 }
@@ -61,7 +63,7 @@ a {
     left: -30%;
     width: var(--nav-width);
     height: 100vh;
-    background-color: var(--first-color);
+    background-color: #ffff;
     padding: 0.5rem 1rem 0 0;
     transition: 0.5s;
     z-index: var(--z-fixed);
@@ -87,11 +89,12 @@ a {
 .nav_logo-icon {
     width: 20px;
     font-size: 1.25rem;
-    color: var(--white-color);
+    color: #2447c7;
 }
 .nav_logo-name {
-    color: var(--white-color);
+    color: #2447c7;
     font-weight: 700;
+    font-size: 1.25rem;
 }
 .nav_link {
     position: relative;
@@ -99,20 +102,22 @@ a {
     margin-bottom: 1.5rem;
     transition: 0.3s;
 }
-.nav_link:hover {
-    color: var(--white-color);
+.nav_icon:hover,.nav_link:hover {
+    color: #15329c;
 }
 .nav_icon {
     font-size: 1.25rem;
+    color: #4563cf;
 }
 .sidebar-show {
     left: 0;
 }
 .body-pd {
     padding-left: calc(var(--nav-width) + 1rem);
+    /* color: #f7f6fb!important; */
 }
 .active {
-    color: var(--white-color);
+    color: #033eff;
 }
 .active::before {
     content: "";
@@ -120,7 +125,7 @@ a {
     left: 0;
     width: 2px;
     height: 32px;
-    background-color: var(--white-color);
+    background-color: #033eff;
 }
 .height-100 {
     height: 100vh;
@@ -153,5 +158,6 @@ a {
     }
     .body-pd {
         padding-left: calc(var(--nav-width) + 188px);
+        /* color: #f7f6fb!important; */
     }
 }

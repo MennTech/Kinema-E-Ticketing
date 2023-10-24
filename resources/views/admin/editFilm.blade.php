@@ -18,7 +18,7 @@
                                     padding-bottom: 12px!important;
                                 }
                             </style>
-                            <select name="genre[]" class="form-select" id="genreInput" multiple >
+                            <select name="genre[]" class="form-select" id="genreInput" multiple>
                                 @php
                                     $genre = explode(',', $_GET['genre']);
                                 @endphp
@@ -43,9 +43,13 @@
                             <label for="posterInput" class="form-label">Poster Film</label>
                             <input type="file" class="form-control" id="posterInput" accept=".jpg, .jpeg">
                         </div>
-                        <div class="col-4">
-                            <label for="durasInput" class="form-label">Durasi Film</label>
+                        <div class="col-2">
+                            <label for="durasiInput" class="form-label">Durasi Film</label>
                             <input type="number" class="form-control" id="durasiInput" placeholder="{{ $_GET['durasi'] }}">
+                        </div>
+                        <div class="col-2">
+                            <label for="usiaInput" class="form-label">Rating Usia</label>
+                            <input type="number" class="form-control" id="usiaInput" placeholder="{{ $_GET['ratingUsia'] }}">
                         </div>
                     </div>
                     <div class="row mb-3">
