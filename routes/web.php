@@ -3,18 +3,18 @@
 use Illuminate\Support\Facades\Route;
 
 
-Route::get('/', function () {
-    return view('login');
-});
+// Route::get('/', function () {
+//     return view('login');
+// });
 
 Route::get('/login', function () {
-    return view('login');
+    return view('user/login');
 });
 
-Route::get('/signin', function () {
-    return view('signin');
+Route::get('/signup', function () {
+    return view('user/signup');
 });
 
-Route::get('/welcome', function () {
-    return view('welcome');
+Route::get('/', function () {
+    return view('user/home');
 });
