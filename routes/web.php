@@ -7,6 +7,10 @@ use Illuminate\Support\Facades\Route;
 //     return view('login');
 // });
 
+Route::get('/', function () {
+    return view('user/home');
+});
+
 Route::get('/login', function () {
     return view('user/login');
 });
@@ -15,7 +19,7 @@ Route::get('/signup', function () {
     return view('user/signup');
 });
 
-Route::get('/', function () {
+Route::get('/Admin', function () {
     return view('admin/landingPage',[
         'title' => 'dashboard',
         'foto_profile' => 'user2.jpg',
