@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -91,7 +90,7 @@
     </div>
     
     <div class="col-md-4">
-        <h2 class="mt-5" style="padding: 10px;"><strong>Welcome, <span id="exampleInputName"></strong></span></h2>
+        <h2 class="mt-5" style="padding: 10px;"><strong>Welcome, Gojo Satoru</strong></span></h2>
             <select id="inputState" class="form-select" style="float: right;">
                 <option selected>Pilih Lokasi Anda</option>
                 <option>KINEMA Galeria Mall Jogja</option>
