@@ -4,7 +4,8 @@
     <div class="contents">
         <div class="row">
             <div class="col-12">
-                <div class="card mt-3 me-3 align-self-center">
+                {{-- Web --}}
+                <div class="card mt-3 me-3 d-lg-block d-none">
                     <div class="card-body">
                         <div class="row">
                             <div class="col-2 border-end">
@@ -25,22 +26,77 @@
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-12">
-                <div class="card mt-3 me-3">
+                {{-- Mobile --}}
+                <div class="card mt-3 d-block d-lg-none">
                     <div class="card-body">
-                        <a href="/Profile-MyTicket" class="button"><i class="fa-solid fa-ticket"></i> My Ticket</a>
+                        <div class="row d-flex justify-content-center">
+                            <img src="img/{{ $foto_profile }}" alt="" class=" rounded-circle w-50">
+                        </div>
+                        <div class="row d-flex justify-content-between mt-3">
+                            <div class="col-6">
+                                <p>Nama:</p>
+                            </div>
+                            <div class="col-6">
+                                <p class="d-flex justify-content-end">{{ $name }}</p>
+                            </div>
+                            
+                        </div>
+                        <div class="row d-flex justify-content-between">
+                            <div class="col-6">
+                                <p>Email:</p>
+                            </div>
+                            <div class="col-6">
+                                <p class="d-flex justify-content-end">{{ $email }}</p>
+                            </div>
+                            
+                        </div>
+                        <div class="row d-flex justify-content-between">
+                            <div class="col-6">
+                                <p>No Hp:</p>
+                            </div>
+                            <div class="col-6">
+                                <p class="d-flex justify-content-end">{{ $no_telp }}</p>
+                            </div> 
+                        </div>
+                        <div class="row">
+                            <div class="col-auto">
+                                <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#editProfileModal">
+                                    <i class="fa-solid fa-pen-to-square"></i> Edit Profile
+                                </button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
         <div class="row">
             <div class="col-12">
-                <div class="card mt-3 me-3">
+                {{-- Web --}}
+                <div class="card mt-3 me-3  d-lg-block d-none">
                     <div class="card-body">
-                        <a href="/Profile-MyFood" class="button"><i class="fa-solid fa-pizza-slice"></i> My Food</a>
+                        <a href="/Profile-MyTicket" class="button text-primary-emphasis"><i class="fa-solid fa-ticket"></i> My Ticket</a>
+                    </div>
+                </div>
+                {{-- Mobile --}}
+                <div class="card mt-3 d-block d-lg-none">
+                    <div class="card-body">
+                        <a href="/Profile-MyTicket" class="button text-primary-emphasis"><i class="fa-solid fa-ticket"></i> My Ticket</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                {{-- Web --}}
+                <div class="card mt-3 me-3  d-lg-block d-none">
+                    <div class="card-body">
+                        <a href="/Profile-MyFood" class="button text-primary-emphasis"><i class="fa-solid fa-pizza-slice"></i> My Food</a>
+                    </div>
+                </div>
+                {{-- Mobile --}}
+                <div class="card mt-3 d-block d-lg-none">
+                    <div class="card-body">
+                        <a href="/Profile-MyFood" class="button text-primary-emphasis"><i class="fa-solid fa-pizza-slice"></i> My Food</a>
                     </div>
                 </div>
             </div>
