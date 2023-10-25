@@ -389,7 +389,7 @@
                 <hr>
                 <!-- Button Trigger Modal -->
                 <div class="btn-bayar">
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#confirmModal">
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#paymentModal">
                         Confirm Order
                     </button>
                     <button type="button" onclick="history.back()" class="btn btn-link">Cancel</button>
@@ -451,4 +451,8 @@
         </div>
     </div>
     <!-- Main END -->
+
+     <!-- (scripts and assets) -->
+    <!-- Bootstrap 5.3 -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 @endsection
