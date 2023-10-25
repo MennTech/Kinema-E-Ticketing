@@ -21,6 +21,10 @@ Route::get('/food', function () {
     return view('user/food');
 });
 
+Route::get('/seat', function () {
+    return view('user/seat');
+});
+
 Route::get('/login', function () {
     return view('user/login');
 });

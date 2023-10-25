@@ -37,7 +37,8 @@
             position: absolute;
             background-size: cover;
             width: 100%;
-            height: 100%;
+            height: 55%;
+            margin-top: -445px;
         }
         .gt-img-poster{
             border-radius: 15px;
@@ -75,6 +76,11 @@
             padding: 10px;
             box-sizing: border-box;
         }
+        .list-group{
+            margin-top: 445px;
+            margin-left: 250px;
+            width: 1000px;
+        }
     </style>
 </head>
 <body style="background-color: #FFDFDF;">
@@ -84,7 +90,7 @@
         <nav class="navbar navbar-expand-xl">
             <div class="container-fluid px-3 px-xl-5">
                 <!-- Logo START -->
-                <a class="navbar-brand" href="index.html">
+                <a class="navbar-brand" href="#">
                     <img class="light-mode-item navbar-brand-item" src="{{ asset('img/KINEMA-logo.png') }}" alt="logo">
                 </a>
                 <!-- Logo END -->
@@ -140,9 +146,10 @@
         <!-- Nav END -->
     </header>
 
-    <!-- Main -->
+    <!-- Main START -->
     <main class="gt-main">
         <div class="gt-page-wrapper">
+            <!-- Main Header START -->
             <div class="gt-title-overview gt-style-1">
                 <div class="gt-cover" style="background-image: url(&quot;https://asset.tix.id/wp-content/uploads/2023/09/wnpGCjmUJtbKAo8m2cRQ0Pcy519.jpg&quot;);">
                     <div class="gt-flex-container">
@@ -151,6 +158,7 @@
                                 class="attachment-noxe-title-poster-2 size-noxe-title-poster-2 gt-lazy-load loaded" alt="PETUALANGAN SHERINA 2" decoding="async" 
                                 data-src="{{ asset('img/sherina-poster.jpg') }}" data-ll-status="loaded">
                         </div>
+                        <!-- Details START -->
                         <div class="gt-details gt-part-1">
                             <h1>PETUALANGAN SHERINA 2</h1>
                             <div class="gt-mini-summary" style="color: white;">
@@ -185,19 +193,105 @@
                                 <div class="gt-item gt-time">2h 6min</div>
                             </div>
                         </div>
+                        <!-- Details END -->
                     </div>
                 </div>
             </div>
-		    <div class="gt-flex-container gt-page-layout">
-		        <div class="gt-page-content gt-page-content-full">
-                    <div class="gt-sticky-sidebar">
-		            </div>
-                </div>
-            </div>
+            <!-- Main Header END -->
+		    <ul class="list-group">
+                <li class="list-group-item" style="border-color: #FFFFFF">
+                    <div class="mall-name" style="display:block">
+                        <a href="#" class="nav-link">PAKUWON MALL</a>
+                    </div>
+                    <div class="time-price" style="margin-top:10px;">
+                        <div class="col-xs-7" style="text-align:left">25-10-2023</div>
+                        <div class="col-xs-5" style="text-align-right">
+                            <span class="p_price">Rp 35.000</span>
+                        </div>
+                        <p class="p_time">
+                            <a class="btn btn-outline-primary div_schedule" style="border-color: #337ab7; font-size:14px; margin-left:5px; margin-top:15px" href="{{ url('seat') }}" 
+                                onclick="confirmDialog('sid=&amp;cinema_id=YGYSTUD&amp;movie_id=13PSA2&amp;date_show=25-10-2023&amp;time_show=18:45&amp;studio_id=4&amp;ticket_price=35000&amp;find_by=2');">
+                                12:15
+                            </a>
+                            <a class="btn btn-outline-primary div_schedule" style="border-color: #337ab7; font-size:14px; margin-left:10px; margin-top:15px" href="{{ url('seat') }}" 
+                                onclick="confirmDialog('sid=&amp;cinema_id=YGYSTUD&amp;movie_id=13PSA2&amp;date_show=25-10-2023&amp;time_show=18:45&amp;studio_id=4&amp;ticket_price=35000&amp;find_by=2');">
+                                14:30
+                            </a>
+                            <a class="btn btn-outline-primary div_schedule" style="border-color: #337ab7; font-size:14px; margin-left:10px; margin-top:15px" href="{{ url('seat') }}" 
+                                onclick="confirmDialog('sid=&amp;cinema_id=YGYSTUD&amp;movie_id=13PSA2&amp;date_show=25-10-2023&amp;time_show=18:45&amp;studio_id=4&amp;ticket_price=35000&amp;find_by=2');">
+                                16:45
+                            </a>
+                            <a class="btn btn-outline-primary div_schedule" style="border-color: #337ab7; font-size:14px; margin-left:10px; margin-top:15px" href="{{ url('seat') }}" 
+                                onclick="confirmDialog('sid=&amp;cinema_id=YGYSTUD&amp;movie_id=13PSA2&amp;date_show=25-10-2023&amp;time_show=18:45&amp;studio_id=4&amp;ticket_price=35000&amp;find_by=2');">
+                                19:00
+                            </a>
+                            <a class="btn btn-outline-primary div_schedule" style="border-color: #337ab7; font-size:14px; margin-left:10px; margin-top:15px" href="{{ url('seat') }}" 
+                                onclick="confirmDialog('sid=&amp;cinema_id=YGYSTUD&amp;movie_id=13PSA2&amp;date_show=25-10-2023&amp;time_show=18:45&amp;studio_id=4&amp;ticket_price=35000&amp;find_by=2');">
+                                21:15
+                            </a>
+                        </p>
+                    </div>
+                    <div class="time-price" style="margin-top:10px;">
+                        <div class="col-xs-7" style="text-align:left">26-10-2023</div>
+                        <div class="col-xs-5" style="text-align-right">
+                            <span class="p_price">Rp 35.000</span>
+                        </div>
+                        <p class="p_time">
+                            <a class="btn btn-outline-primary div_schedule" style="border-color: #337ab7; font-size:14px; margin-left:5px; margin-top:15px" href="#" 
+                                onclick="confirmDialog('sid=&amp;cinema_id=YGYSTUD&amp;movie_id=13PSA2&amp;date_show=25-10-2023&amp;time_show=18:45&amp;studio_id=4&amp;ticket_price=35000&amp;find_by=2');">
+                                12:15
+                            </a>
+                            <a class="btn btn-outline-primary div_schedule" style="border-color: #337ab7; font-size:14px; margin-left:10px; margin-top:15px" href="#" 
+                                onclick="confirmDialog('sid=&amp;cinema_id=YGYSTUD&amp;movie_id=13PSA2&amp;date_show=25-10-2023&amp;time_show=18:45&amp;studio_id=4&amp;ticket_price=35000&amp;find_by=2');">
+                                14:30
+                            </a>
+                            <a class="btn btn-outline-primary div_schedule" style="border-color: #337ab7; font-size:14px; margin-left:10px; margin-top:15px" href="#" 
+                                onclick="confirmDialog('sid=&amp;cinema_id=YGYSTUD&amp;movie_id=13PSA2&amp;date_show=25-10-2023&amp;time_show=18:45&amp;studio_id=4&amp;ticket_price=35000&amp;find_by=2');">
+                                16:45
+                            </a>
+                            <a class="btn btn-outline-primary div_schedule" style="border-color: #337ab7; font-size:14px; margin-left:10px; margin-top:15px" href="#" 
+                                onclick="confirmDialog('sid=&amp;cinema_id=YGYSTUD&amp;movie_id=13PSA2&amp;date_show=25-10-2023&amp;time_show=18:45&amp;studio_id=4&amp;ticket_price=35000&amp;find_by=2');">
+                                19:00
+                            </a>
+                            <a class="btn btn-outline-primary div_schedule" style="border-color: #337ab7; font-size:14px; margin-left:10px; margin-top:15px" href="#" 
+                                onclick="confirmDialog('sid=&amp;cinema_id=YGYSTUD&amp;movie_id=13PSA2&amp;date_show=25-10-2023&amp;time_show=18:45&amp;studio_id=4&amp;ticket_price=35000&amp;find_by=2');">
+                                21:15
+                            </a>
+                        </p>
+                    </div>
+                    <div class="time-price" style="margin-top:10px;">
+                        <div class="col-xs-7" style="text-align:left">27-10-2023</div>
+                        <div class="col-xs-5" style="text-align-right">
+                            <span class="p_price">Rp 35.000</span>
+                        </div>
+                        <p class="p_time">
+                            <a class="btn btn-outline-primary div_schedule" style="border-color: #337ab7; font-size:14px; margin-left:5px; margin-top:15px" href="#" 
+                                onclick="confirmDialog('sid=&amp;cinema_id=YGYSTUD&amp;movie_id=13PSA2&amp;date_show=25-10-2023&amp;time_show=18:45&amp;studio_id=4&amp;ticket_price=35000&amp;find_by=2');">
+                                12:15
+                            </a>
+                            <a class="btn btn-outline-primary div_schedule" style="border-color: #337ab7; font-size:14px; margin-left:10px; margin-top:15px" href="#" 
+                                onclick="confirmDialog('sid=&amp;cinema_id=YGYSTUD&amp;movie_id=13PSA2&amp;date_show=25-10-2023&amp;time_show=18:45&amp;studio_id=4&amp;ticket_price=35000&amp;find_by=2');">
+                                14:30
+                            </a>
+                            <a class="btn btn-outline-primary div_schedule" style="border-color: #337ab7; font-size:14px; margin-left:10px; margin-top:15px" href="#" 
+                                onclick="confirmDialog('sid=&amp;cinema_id=YGYSTUD&amp;movie_id=13PSA2&amp;date_show=25-10-2023&amp;time_show=18:45&amp;studio_id=4&amp;ticket_price=35000&amp;find_by=2');">
+                                16:45
+                            </a>
+                            <a class="btn btn-outline-primary div_schedule" style="border-color: #337ab7; font-size:14px; margin-left:10px; margin-top:15px" href="#" 
+                                onclick="confirmDialog('sid=&amp;cinema_id=YGYSTUD&amp;movie_id=13PSA2&amp;date_show=25-10-2023&amp;time_show=18:45&amp;studio_id=4&amp;ticket_price=35000&amp;find_by=2');">
+                                19:00
+                            </a>
+                            <a class="btn btn-outline-primary div_schedule" style="border-color: #337ab7; font-size:14px; margin-left:10px; margin-top:15px" href="#" 
+                                onclick="confirmDialog('sid=&amp;cinema_id=YGYSTUD&amp;movie_id=13PSA2&amp;date_show=25-10-2023&amp;time_show=18:45&amp;studio_id=4&amp;ticket_price=35000&amp;find_by=2');">
+                                21:15
+                            </a>
+                        </p>
+                    </div>
+                </li>
+            </ul>
 		</div>
-    </div>
-</main>
-    
+    </main>
+    <!-- Main END -->
 
     <!-- (scripts and assets) -->
     <!-- Bootstrap 5.3 -->
