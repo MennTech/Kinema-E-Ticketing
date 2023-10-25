@@ -81,12 +81,8 @@
         .btn-bayar{
             margin-left: 520px;
         }
-        .ovo{
-            width: 10%;
-            border-radius: 50%;
-        }
-        .gopay{
-            width: 10%;
+        .qris{
+            width: 20%;
         }
     </style>
 </head>
@@ -262,29 +258,59 @@
                 </ul>
                 <!-- Button Trigger Modal -->
                 <div class="btn-bayar">
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#paymentModal">
                         Bayar
                     </button>
-                    <!-- Modal -->
-                    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="staticBackdropLabel">Metode Pembayaran</h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
+                </div>
+                <!-- Modal -->
+                <div class="modal fade" id="paymentModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="paymentModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="paymentModalLabel">Metode Pembayaran</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
                                 <td>
-                                    <input type="radio" id="ovo" name="pembayaran" value="Ovo" />
-                                    <img class="ovo" src="{{ asset('img/ovo.jpeg') }}" alt="ovo">
-                                    <input type="radio" id="gopay" name="pembayaran" value="Gopay" />
-                                    <img class="gopay "src="{{ asset('img/gopay.png') }}" alt="gopay">
+                                    <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#cashlesspaymentModal" style="background-color: #FFDFDF;">
+                                        Cashless
+                                    </button>
+                                    <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#qrispaymentModal" style="background-color: #FFDFDF;">
+                                        Qris
+                                    </button>
                                 </td>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
-                                    <button type="button" class="btn btn-primary">Bayar</button>
-                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal fade" id="cashlesspaymentModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="cashlesspaymentModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                            <h5 class="modal-title" id="cashlesspaymentModalLabel">Pembayaran Berhasil</h5>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">OK</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal fade" id="qrispaymentModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="qrispaymentModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <img src="{{ asset('img/qris.png') }}" alt="qris">
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">OK</button>
                             </div>
                         </div>
                     </div>
