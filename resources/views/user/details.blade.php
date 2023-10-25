@@ -82,67 +82,6 @@
     </style>
 </head>
 <body style="background-color: #FFDFDF;">
-    <!-- navbar -->
-    <header class="navbar-light navbar-sticky header-static">
-        <!-- Nav START -->
-        <nav class="navbar navbar-expand-xl">
-            <div class="container-fluid px-3 px-xl-5">
-                <!-- Logo START -->
-                <a class="navbar-brand" href="#">
-                    <img class="light-mode-item navbar-brand-item" src="{{ asset('img/KINEMA-logo.png') }}" alt="logo">
-                </a>
-                <!-- Logo END -->
-
-                <!-- Responsive navbar toggler -->
-                <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-animation">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </span>
-                </button>
-
-                <!-- Main navbar START -->
-                <div class="navbar-collapse w-100 collapse" id="navbarCollapse">
-                    <!-- Nav Main menu START -->
-                    <ul class="navbar-nav navbar-nav-scroll me-auto">
-                        <!-- Nav item 1 Home -->
-                        <li class="nav-item">
-                            <a href="{{ url('home') }}" class="nav-link">Home</a>
-                        </li>
-
-                        <!-- Nav item 2 Food -->
-                        <li class="nav-item">
-                            <a href="{{ url('food') }}" class="nav-link">Food</a>
-                        </li>
-                    <!-- Nav Main menu END -->
-
-                    <!-- Nav Search START -->
-                    <div class="nav my-3 my-xl-0 px-4 flex-nowrap align-items-center">
-                        <div class="nav-item w-100">
-                            <form class="position-relative">
-                                <input class="form-control pe-5 bg-transparent" type="search" placeholder="Search" aria-label="Search">
-                                <button class="bg-transparent p-2 position-absolute top-50 end-0 translate-middle-y border-0 text-primary-hover text-reset" type="submit">
-                                    <i class="fas fa-search fs-6 "></i>
-                                </button>
-                            </form>
-                        </div>
-                    </div>
-                    <!-- Nav Search END -->
-                </div>
-                <!-- Main navbar END -->
-
-                <!-- Profile START -->
-                <div class="ms-1 ms-lg-0">
-                    <a class="avatar avatar-sm p-0" href="{{ url('profile') }}" id="profile" role="button" data-bs-auto-close="outside" data-bs-display="static" data-bs-toggle="" aria-expanded="false">
-                        <img class="avatar-img rounded-circle" src="{{ asset('img/profile.png') }}" alt="avatar">
-                    </a>
-                </div>
-                <!-- Profile START -->
-            </div>
-        </nav>
-        <!-- Nav END -->
-    </header>
 
     <!-- Main START -->
     <main class="gt-main">

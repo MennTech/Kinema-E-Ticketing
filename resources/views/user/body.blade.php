@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Kinema</title>
 
 
     {{-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
@@ -57,7 +57,7 @@
 </head>
 
 <body style="background-color: #EFEFEF;overflow-x: hidden ">
-    <nav class="navbar bg-body-tertiary" style="background-color: #FFFFFF;">
+    <nav class="navbar" style="">
             <nav class="navbar bg-body-tertiary fixed-top">
                 <div class="container-fluid">
                     <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
@@ -90,12 +90,12 @@
                                         <li class="nav-item">
                                             <a class="nav-link active" href="/Profile">Profile</a>
                                         </li>
-                                        {{-- <li class="nav-item">
-                                            <a class="nav-link active" href="#">Tiket Anda</a>
+                                        <li class="nav-item">
+                                            <a class="nav-link active" href="/food">Food</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link active" href="#">Pesan</a>
-                                        </li> --}}
+                                            <a class="nav-link active" href="/details">Detail</a>
+                                        </li>
                                     </ul>
                                 </div>
                         </div>
