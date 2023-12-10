@@ -18,6 +18,7 @@
                         <th>Judul Film</th>
                         <th>Genre</th>
                         <th>Durasi</th>
+                        <th>Status</th>
                         <th>Details</th>
                         <th>Action</th>
                     </tr>
@@ -26,17 +27,17 @@
                     @foreach ($table_film as $item)
                     <tr data-no="{{ $loop->iteration }}" data-judul="Judul: {{ $item['judul_film'] }}" data-genre="Genre: {{ $item['genre'] }}" 
                         data-durasi="Durasi: {{ $item['durasi'] }}" data-sutradara="Sutradara: {{ $item['sutradara'] }}" data-actor="Actor: {{ $item['actor'] }}" 
-                        data-sinopsis="Sinopsis: {{ $item['sinopsis'] }}" data-poster="{{ $item['poster_film'] }}" data-ratingUsia="{{ $item['ratingUsia'] }}+">
+                        data-sinopsis="Sinopsis: {{ $item['sinopsis'] }}" data-poster="{{ $item['poster_film'] }}" data-ratingUsia="Rate Usia: {{ $item['ratingUsia'] }}+" data-status="Status: {{ $item['status'] }}">
                         <th>{{ $loop->iteration }}</th>
                         <td class="poster_cell"><img src="img/{{ $item['poster_film'] }}" alt="" class="w-25"></td>
                         <td>{{ $item['judul_film'] }}</td>
                         <td>{{ $item['genre'] }}</td>
                         <td>{{ $item['durasi'] }}</td>
-
+                        <td>{{ $item['status'] }}</td>
                         <td><a id="detailFilm{{ $loop->iteration }}" data-bs-toggle="modal" data-bs-target="#detailsFilmModal" style="cursor: pointer"><i
                             class="fa-solid fa-circle-info text-primary fa-2x"></i></a></td>
                         <td>
-                            <a href="/Edit-Film?judul={{ $item['judul_film'] }}&genre={{ $item['genre'] }}&durasi={{ $item['durasi'] }}&sutradara={{ $item['sutradara'] }}
+                            <a href="/Edit-Film?judul={{ $item['judul_film'] }}&genre={{ $item['genre'] }}&durasi={{ $item['durasi'] }}&status={{ $item['status'] }}&sutradara={{ $item['sutradara'] }}
                             &actor={{ $item['actor'] }}&sinopsis={{ $item['sinopsis'] }}&poster={{ $item['poster_film'] }}&ratingUsia={{ $item['ratingUsia'] }}" class="button">
                                 <i class="fa-solid fa-pen-to-square text-warning fa-lg"></i>
                             </a>
@@ -54,6 +55,7 @@
                                     var sinopsis = $(this).parents('tr').attr('data-sinopsis');
                                     var poster = $(this).parents('tr').attr('data-poster'); 
                                     var ratingUsia = $(this).parents('tr').attr('data-ratingUsia');
+                                    var status = $(this).parents('tr').attr('data-status');
                                     $('#modalPoster').attr('src', 'img/' + poster);
                                     $('#modalJudul').text(judul);
                                     $('#modalGenre').text(genre);
@@ -62,7 +64,7 @@
                                     $('#modalActor').text(actor);
                                     $('#modalSinopsis').text(sinopsis);
                                     $('#modalRatingUsia').text(ratingUsia);
-                    
+                                    $('#modalStatus').text(status);
                                     $('#detailsFilmModal').modal('show');
                                 });
                             });
@@ -98,6 +100,7 @@
                         <img id="modalPoster" alt="" class="w-100">
                     </div>
                     <div class="col-9">
+                        <p id="modalStatus"></p>
                         <p id="modalJudul"></p>
                         <p id="modalRatingUsia"></p>
                         <p id="modalGenre"></p>

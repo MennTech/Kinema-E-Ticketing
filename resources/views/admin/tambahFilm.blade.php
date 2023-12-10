@@ -33,7 +33,7 @@
                         </div>
                     </div>
                     <div class="row mb-3">
-                        <div class="col-8">
+                        <div class="col-6">
                             <label for="posterInput" class="form-label">Poster Film</label>
                             <input type="file" class="form-control" id="posterInput" accept=".jpg, .jpeg">
                         </div>
@@ -44,6 +44,15 @@
                         <div class="col-2">
                             <label for="usiaInput" class="form-label">Rating Usia</label>
                             <input type="number" class="form-control" id="usiaInput">
+                        </div>
+                        <div class="col-2">
+                            <label for="statusInput" class="form-label">Status</label>
+                            <select name="statusFilm" id="statusInput" class="form-select">
+                                <option value="">Pilih Status</option>
+                                <option value="Now Playing">Now Playing</option>
+                                <option value="Coming Soon">Coming Soon</option>
+                                <option value="Not Show">Not Show</option>
+                            </select>
                         </div>
                     </div>
                     <div class="row mb-3">
