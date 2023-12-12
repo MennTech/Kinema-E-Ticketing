@@ -8,7 +8,7 @@
             margin: 0;
         }
     </style>
-
+    {{-- Food View --}}
     <div class="container border my-3" style="max-width: 830px;">
         <p class="fw-semibold fs-5">Food - KINEMA HOUSE</p>
         <hr>
