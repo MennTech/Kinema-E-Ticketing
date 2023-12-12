@@ -128,7 +128,6 @@
         <div class="modal-footer">
           <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
           <button class="btn btn-primary" type="button" data-bs-dismiss="modal" id="deleteToastBtn">Save</button>
-          {{-- <a href="/Data-Film" type="button" class="btn btn-primary" id="deleteToastBtn">Save</a> --}}
         </div>
       </div>
     </div>

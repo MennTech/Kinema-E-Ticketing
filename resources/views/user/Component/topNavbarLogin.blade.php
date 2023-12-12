@@ -11,10 +11,7 @@
                     <li class="nav-item px-3"><a href="/food" class="text-decoration-none text-primary-emphasis"><strong>Food</strong></a></li>
                     <li class="nav-item px-3"><a href="" class="text-decoration-none text-primary-emphasis"><strong>About</strong></a></li>
                 </ul>
-                <a href="/Profile" class="text-decoration-none d-flex justify-content-center align-items-center">
-                    <p class="fw-semibold text-primary-emphasis mb-0 me-2">{{ $name }}</p>
-                    <img src="img/{{ $foto_profile }}" alt="" class="rounded-circle" style="max-width: 50px">
-                </a>
+                <a href="/login" class="btn btn-primary fw-bold"><i class="fa-solid fa-user"></i> Login</a>
             </div>
         </div>
     </nav>

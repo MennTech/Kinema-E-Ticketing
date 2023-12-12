@@ -1,20 +1,6 @@
 @extends('user/pages/landingPage')
 
 @section('content') 
-    {{-- <style>
-        /* .nav-link {
-            transition: opacity 0.3s ease; /* Menambahkan efek transisi */
-        /* } */
-
-        /* .nav-link.tab-link.active {
-            opacity: 1; /* Opaqueness penuh saat aktif */
-        /* } */
-
-        /* .nav-link.tab-link:not(.active) {
-            opacity: 0.6; Transparansi pada tab tidak aktif */
-        /* } */
-    </style> --}}
-    
     <div id="carouselExampleAutoplaying" class="carousel slide mx-auto mt-2 " data-bs-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active">
@@ -65,69 +51,6 @@
                 @endforeach
             </div>
         </div>
-        {{-- <div class="navbar-collapse mt-5 mx-auto" style="max-width: 400px">
-            <ul class="nav-tabs d-flex justify-content-between p-0" style="list-style-type: none">
-                <li class="nav-item">
-                    <a href="?tab=nowplaying" class="nav-link tab-link @if($tab == 'nowplaying') active @endif" data-status="nowplaying"><h4>Now Playing</h4></a>
-                </li>
-                <li class="nav-item">
-                    <a href="?tab=comingsoon" class="nav-link tab-link @if($tab == 'comingsoon') active @endif" data-status="comingsoon"><h4>Coming Soon</h4></a>
-                </li>
-            </ul>
-        </div>
-        <div class="container mt-4 mb-5 rounded" style="max-width: 1000px;background-color: #F5F5F5">
-            <div class="row" id="film-container">
-                <!-- Film akan dimuat di sini berdasarkan tab -->
-                @foreach ($filtered_films as $item)
-                    <div class="col-3 mt-3 mb-2">
-                        <a href=""><img src="img/{{ $item['poster_film'] }}" alt="" class="w-100"></a>
-                        <h5 class="text-center mt-2">{{ $item['judul_film'] }}</h5>
-                    </div>
-                @endforeach
-            </div>
-        </div> --}}
         <h1 class="text-center text-primary-emphasis mb-5" style="margin-top: 65px">Book You Ticket Now !</h1>
     </div>
-
-    {{-- <script>
-        // document.addEventListener('DOMContentLoaded', function() {
-        //     var currentTab = "{{ $tab }}"; // Added to capture the current tab
-    
-        //     // Menggunakan jQuery untuk kesederhanaan, pastikan Anda menyertakan jQuery di halaman Anda.
-        //     $('.tab-link').on('click', function() {
-        //         var status = $(this).data('status');
-        //         // Memanggil fungsi untuk memuat film berdasarkan status
-        //         // loadFilmByStatus(status);
-        //     });
-    
-        //     // Memuat film saat halaman pertama kali dimuat
-        //     // loadFilmByStatus(currentTab);
-        // });
-    
-        // function loadFilmByStatus(status) {
-        //     // Menyiapkan URL dengan status yang akan dimuat
-        //     var url = 'img/'; // Ganti dengan URL yang sesuai
-        //     $('#film-container').empty(); // Mengosongkan kontainer film sebelum memuat data baru
-    
-        //     // Melakukan iterasi pada data film dan menambahkannya ke dalam kontainer
-        //     // @foreach ($table_film as $item)
-        //     //     @if ($item['status'] == "Now Playing")
-        //     //         if (status == 'nowplaying') {
-        //     //             $('#film-container').append(`<div class="col-3 mt-3 mb-2">
-        //     //                 <a href=""><img src="${url}${$item['poster_film']}" alt="" class="w-100"></a>
-        //     //                 <h5 class="text-center mt-2">${$item['judul_film']}</h5>
-        //     //             </div>`);
-        //     //         }
-        //     //     @elseif ($item['status'] == "Coming Soon")
-        //     //         if (status == 'comingsoon') {
-        //     //             $('#film-container').append(`<div class="col-3 mt-3 mb-2">
-        //     //                 <a href=""><img src="${url}${$item['poster_film']}" alt="" class="w-100"></a>
-        //     //                 <h5 class="text-center mt-2">${$item['judul_film']}</h5>
-        //     //             </div>`);
-        //     //         }
-        //     //     @endif
-        //     // @endforeach
-        // }
-    </script> --}}
-    
 @endsection

@@ -15,6 +15,7 @@
             background-size: cover;
         }
     </style>
+    {{-- @include('user/Component/topNavbarLogin') //digunakan jika user belum login --}}
     @include('user/Component/topNavbar')
     <div class="container">
         @yield('content')

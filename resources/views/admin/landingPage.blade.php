@@ -26,7 +26,6 @@
         </div>
         <div class="card mb-4 mt-5 me-3 rounded bg-white">
             <div class="card-body">
-                {{-- <form action="" class="border border-2 mt-5 me-3 rounded bg-white"> --}}
                     <p class="fs-1 ps-3 text-primary-emphasis">User</p>
                     <div style="padding: 0px 10px">
                         <table id="tabelData" class="table table-hover" style="padding: 0px 10px;">
@@ -54,7 +53,6 @@
                             </tbody>
                         </table>
                     </div>
-                {{-- </form> --}}
             </div>
         </div>
         <div class="toast-container position-fixed bottom-0 end-0 p-3">

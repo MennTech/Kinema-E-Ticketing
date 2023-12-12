@@ -1,4 +1,4 @@
-@extends('admin/dashboard')
+@extends('user/pages/landingPage')
 
 @section('content')
 <style>
@@ -7,7 +7,7 @@
     src: url('/css/Code39Azalea.woff') format('woff');
   }
 </style>
-<div class="row">
+<div class="row mb-3">
     <div class="col-lg-12 col-12">
       {{-- Web --}}
         <div class="card mt-3 me-3 d-lg-block d-none">

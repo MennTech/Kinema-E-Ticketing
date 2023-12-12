@@ -129,6 +129,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function(){
     return view('user/pages/index',
     [
+        'foto_profile' => 'admin2.jpg',
+        'name' => 'Trisna Utama',
         'table_film' => [
             [
                 'poster_film' => 'poster-film1.jpeg',
@@ -235,6 +237,8 @@ Route::get('/', function(){
 
 Route::get('/detail', function(){
     return view('user/pages/detail', [
+        'foto_profile' => 'admin2.jpg',
+        'name' => 'Trisna Utama',
         'table_film' => [
             'poster_film' => 'poster-film1.jpeg',
             'judul_film' => 'Avengers: Endgame',
@@ -261,6 +265,8 @@ Route::get('/detail', function(){
 
 Route::get('/food', function(){
     return view('user/pages/food', [
+        'foto_profile' => 'admin2.jpg',
+        'name' => 'Trisna Utama',
         'total_harga' => '0',
         'table_food'=>[
             [
@@ -522,7 +528,7 @@ Route::get('/Edit-Makanan', function () {
 });
 
 Route::get('/Profile', function () {
-    return view('user/profile',[
+    return view('user/pages/profile',[
         'title' => 'profile',
         'foto_profile' => 'admin2.jpg',
         'name' => 'Trisna Utama',
@@ -532,17 +538,17 @@ Route::get('/Profile', function () {
 });
 
 Route::get('/Profile-MyTicket', function () {
-    return view('user/myTicket',[
+    return view('user/pages/myTicket',[
         'title' => 'profile-myTicket',
-        'foto_profile' => 'admin2.jpg', //dipakai karena extend admin, bisa dihapus
-        'name' => 'Trisna Utama', //dipakai karena extend admin, bisa dihapus
+        'foto_profile' => 'admin2.jpg', 
+        'name' => 'Trisna Utama', 
     ]);
 });
 
 Route::get('/Profile-MyFood', function () {
-    return view('user/myFood',[
+    return view('user/pages/myFood',[
         'title' => 'profile-myFood',
-        'foto_profile' => 'admin2.jpg', //dipakai karena extend admin, bisa dihapus
-        'name' => 'Trisna Utama', //dipakai karena extend admin, bisa dihapus
+        'foto_profile' => 'admin2.jpg', 
+        'name' => 'Trisna Utama',
     ]);
 });
