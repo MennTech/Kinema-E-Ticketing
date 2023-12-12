@@ -259,6 +259,42 @@ Route::get('/detail', function(){
     ]);
 });
 
+Route::get('/food', function(){
+    return view('user/pages/food', [
+        'total_harga' => '0',
+        'table_food'=>[
+            [
+                'id' => '1',
+                'gambar' => 'makanan1.jpg',
+                'nama' => 'Popcorn',
+                'harga' => '20000',
+                'jumlah'=>'0'
+            ],
+            [
+                'id' => '2',
+                'gambar' => 'makanan1.jpg',
+                'nama' => 'Popcorn',
+                'harga' => '25000',
+                'jumlah'=>'0'
+            ],
+            [
+                'id' => '3',
+                'gambar' => 'makanan1.jpg',
+                'nama' => 'Popcorn',
+                'harga' => '30000',
+                'jumlah'=>'0'
+            ],
+            [
+                'id' => '4',
+                'gambar' => 'makanan1.jpg',
+                'nama' => 'Popcorn',
+                'harga' => '40000',
+                'jumlah'=>'0'
+            ],
+        ]
+    ]);
+});
+
 Route::get('/login', function () {
     return view('auth/login',[
     ]);

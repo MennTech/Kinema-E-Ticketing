@@ -7,8 +7,8 @@
             <div class="navbar-collapse">
                 {{-- Nav Item Tidak Center --}} 
                 <ul class="navbar-nav mx-auto">
-                    <li class="nav-item px-3"><a href="/" class="text-decoration-none text-primary-emphasis"><strong>Home</strong></a></li>
-                    <li class="nav-item px-3"><a href="" class="text-decoration-none text-primary-emphasis"><strong>Food</strong></a></li>
+                    <li class="nav-item px-3"><a href="/" class="text-decoration-none text-primary-emphasis"><strong>Movie</strong></a></li>
+                    <li class="nav-item px-3"><a href="/food" class="text-decoration-none text-primary-emphasis"><strong>Food</strong></a></li>
                     <li class="nav-item px-3"><a href="" class="text-decoration-none text-primary-emphasis"><strong>About</strong></a></li>
                 </ul>
                 <a href="/login" class="btn btn-primary fw-bold"><i class="fa-solid fa-user"></i> Login</a>
