@@ -29,27 +29,8 @@
             </div>
         </div>
         @foreach ($jadwal['jam'] as $item)
-            <button type="button" class="btn bg-body-secondary me-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop">{{ $item }}</button>
+            <a href="/seat" class="btn bg-body-secondary me-2" role="button">{{ $item }}</a>
         @endforeach
         <hr>
-    </div>
-
-    <!-- Modal -->
-    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header" style="background-color: #242333">
-                    <h1 class="modal-title fs-5 text-white" id="staticBackdropLabel">Pilih Kursi</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body" style="background-color: #242333">
-                    
-                </div>
-                <div class="modal-footer" style="background-color: #242333">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                    <button type="button" class="btn btn-primary">Bayar</button>
-                </div>
-            </div>
-        </div>
     </div>
 @endsection

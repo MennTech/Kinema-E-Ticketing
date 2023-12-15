@@ -13,9 +13,9 @@
                             </div>
                             <div class="col-8">
                                 <h1>Profile:</h1><br>
-                                <p>Nama: {{ $name }}</p>
-                                <p>Email: {{ $email }}</p>
-                                <p>No Handphone: {{ $no_telp }}</p>
+                                <p>Username: {{ Auth::user()->username }}</p>
+                                <p>Email: {{ Auth::user()->email }}</p>
+                                <p>No Handphone: {{ Auth::user()->no_telp }}</p>
                             </div>
                             <div class="col-2">
                                 <button type="button" class="btn btn-warning float-end" data-bs-toggle="modal" data-bs-target="#editProfileModal">
@@ -34,10 +34,10 @@
                         </div>
                         <div class="row d-flex justify-content-between mt-3">
                             <div class="col-6">
-                                <p>Nama:</p>
+                                <p>Username:</p>
                             </div>
                             <div class="col-6">
-                                <p class="d-flex justify-content-end">{{ $name }}</p>
+                                <p class="d-flex justify-content-end">{{ Auth::user()->username }}</p>
                             </div>
                             
                         </div>
@@ -46,7 +46,7 @@
                                 <p>Email:</p>
                             </div>
                             <div class="col-6">
-                                <p class="d-flex justify-content-end">{{ $email }}</p>
+                                <p class="d-flex justify-content-end">{{ Auth::user()->email }}</p>
                             </div>
                             
                         </div>
@@ -55,7 +55,7 @@
                                 <p>No Hp:</p>
                             </div>
                             <div class="col-6">
-                                <p class="d-flex justify-content-end">{{ $no_telp }}</p>
+                                <p class="d-flex justify-content-end">{{ Auth::user()->no_telp }}</p>
                             </div> 
                         </div>
                         <div class="row">
@@ -101,6 +101,11 @@
                 </div>
             </div>
         </div>
+        <div class="row mt-2">
+            <div class="col-2">
+                <a href="{{ route('actionLogout') }}" class="btn btn-danger">Logout</a>
+            </div>
+        </div>
     </div>
 
     <div class="modal fade" id="editProfileModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="editProfileModalLabel" aria-hidden="true">
@@ -113,20 +118,20 @@
             <div class="modal-body">
                 <div class="row">
                     <div class="col-12">
-                        <label for="namaInput" class="form-label">Nama</label>
-                        <input type="text" id="namaInput" value="{{ $name }}" class="form-control">
+                        <label for="usernameInput" class="form-label">Username</label>
+                        <input type="text" id="usernameInput" value="{{ Auth::user()->username }}" class="form-control">
                     </div>
                 </div>
-                <div class="row">
+                {{-- <div class="row">
                     <div class="col-12">
                         <label for="emailInput" class="form-label">Email</label>
                         <input type="email" id="emailInput" value="{{ $email }}" class="form-control">
                     </div>
-                </div>
+                </div> --}}
                 <div class="row">
                     <div class="col-12">
                         <label for="noHPInput" class="form-label">No Handphone</label>
-                        <input type="number" id="noHPInput" value="{{ $no_telp }}" class="form-control">
+                        <input type="number" id="noHPInput" value="{{ Auth::user()->no_telp }}" class="form-control">
                     </div>
                 </div>
             </div>

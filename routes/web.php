@@ -2,6 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\MovieController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -263,6 +267,12 @@ Route::get('/detail', function(){
     ]);
 });
 
+Route::get('/seat', function(){
+    return view('user/pages/seat', [
+        'foto_profile' => 'admin2.jpg',
+    ]);
+});
+
 Route::get('/food', function(){
     return view('user/pages/food', [
         'foto_profile' => 'admin2.jpg',
@@ -301,16 +311,25 @@ Route::get('/food', function(){
     ]);
 });
 
+//Login
 Route::get('/login', function () {
-    return view('auth/login',[
-    ]);
+    return view('auth/login');
 });
 
+Route::post('actionLogin', [LoginController::class, 'actionLogin'])->name('actionLogin');
+//end Login
+
+//Register
 Route::get('/register', function () {
-    return view('auth/register',[
-    ]);
+    return view('auth/register');
 });
+Route::post('register/action', [RegisterController::class, 'actionRegister'])->name('actionRegister');
+Route::get('register/verify/{verify_key}', [RegisterController::class, 'verify'])->name('verify');
+//End Register
 
+//Logout
+Route::get('logout', [LoginController::class, 'actionLogout'])->name('actionLogout')->middleware('auth');
+//End Logout
 Route::get('/Admin', function () {
     return view('admin/landingPage',[
         'title' => 'dashboard',
@@ -359,82 +378,84 @@ Route::get('/Admin', function () {
     ]);
 });
 
-Route::get('/Data-Film', function () {
-    return view('admin/dataFilm',[
-        'title' => 'data_film',
-        'foto_profile' => 'user2.jpg',
-        'name' => 'Budi Subawa',
-        'table_film'=> 
-        [
-            [
-                'poster_film' => 'poster-film1.jpeg',
-                'judul_film' => 'Avengers: Endgame',
-                'genre' => 'Action, Adventure, Drama',
-                'durasi' => '3h 1m',
-                'status' => 'Now Playing',
-                'ratingUsia' => '13',
-                'sinopsis' => 'After the devastating events of Avengers: Infinity War (2018), the universe is in ruins.',
-                'sutradara' => 'Anthony Russo, Joe Russo',
-                'actor' => 'Robert Downey Jr., Chris Evans, Mark Ruffalo',
-            ],
-            [
-                'poster_film' => 'poster-film1.jpeg',
-                'judul_film' => 'The Shawshank Redemption',
-                'genre' => 'Drama',
-                'durasi' => '2h 22m',
-                'status' => 'Now Playing',
-                'ratingUsia' => '13',
-                'sinopsis' => 'Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.',
-                'sutradara' => 'Frank Darabont',
-                'actor' => 'Tim Robbins, Morgan Freeman, Bob Gunton',
-            ],
-            [
-                'poster_film' => 'poster-film1.jpeg',
-                'judul_film' => 'The Godfather',
-                'genre' => 'Crime, Drama',
-                'durasi' => '2h 55m',
-                'status' => 'Now Playing',
-                'ratingUsia' => '13',
-                'sinopsis' => 'An organized crime dynastys aging patriarch transfers control of his clandestine empire to his reluctant son.',
-                'sutradara' => 'Francis Ford Coppola',
-                'actor' => 'Marlon Brando, Al Pacino, James Caan',
-            ],
-            [
-                'poster_film' => 'poster-film1.jpeg',
-                'judul_film' => 'Pulp Fiction',
-                'genre' => 'Crime, Drama',
-                'durasi' => '2h 34m',
-                'status' => 'Coming Soon',
-                'ratingUsia' => '13',
-                'sinopsis' => 'The lives of two mob hitmen, a boxer, a gangster and his wife, and a pair of diner bandits intertwine in four tales of violence and redemption.',
-                'sutradara' => 'Quentin Tarantino',
-                'actor' => 'John Travolta, Uma Thurman, Samuel L. Jackson',
-            ],
-            [
-                'poster_film' => 'poster-film1.jpeg',
-                'judul_film' => 'The Dark Knight',
-                'genre' => 'Action, Crime, Drama',
-                'durasi' => '2h 32m',
-                'status' => 'Coming Soon',
-                'ratingUsia' => '13',
-                'sinopsis' => 'When the menace known as The Joker emerges from his mysterious past, he wreaks havoc and chaos on the people of Gotham.',
-                'sutradara' => 'Christopher Nolan',
-                'actor' => 'Christian Bale, Heath Ledger, Aaron Eckhart',
-            ],
-            [
-                'poster_film' => 'poster-film1.jpeg',
-                'judul_film' => 'Schindler\'s List',
-                'genre' => 'Biography, Drama, History',
-                'durasi' => '3h 15m',
-                'status' => 'Not Show',
-                'ratingUsia' => '13',
-                'sinopsis' => 'In German-occupied Poland during World War II, industrialist Oskar Schindler gradually becomes concerned for his Jewish workforce after witnessing their persecution by the Nazis.',
-                'sutradara' => 'Steven Spielberg',
-                'actor' => 'Liam Neeson, Ralph Fiennes, Ben Kingsley',
-            ],
-        ],
-    ]);
-});
+Route::resource('/movie', MovieController::class);
+
+// Route::get('/Data-Film', function () {
+//     return view('admin/dataFilm',[
+//         'title' => 'data_film',
+//         'foto_profile' => 'user2.jpg',
+//         'name' => 'Budi Subawa',
+//         'table_film'=> 
+//         [
+//             [
+//                 'poster_film' => 'poster-film1.jpeg',
+//                 'judul_film' => 'Avengers: Endgame',
+//                 'genre' => 'Action, Adventure, Drama',
+//                 'durasi' => '3h 1m',
+//                 'status' => 'Now Playing',
+//                 'ratingUsia' => '13',
+//                 'sinopsis' => 'After the devastating events of Avengers: Infinity War (2018), the universe is in ruins.',
+//                 'sutradara' => 'Anthony Russo, Joe Russo',
+//                 'actor' => 'Robert Downey Jr., Chris Evans, Mark Ruffalo',
+//             ],
+//             [
+//                 'poster_film' => 'poster-film1.jpeg',
+//                 'judul_film' => 'The Shawshank Redemption',
+//                 'genre' => 'Drama',
+//                 'durasi' => '2h 22m',
+//                 'status' => 'Now Playing',
+//                 'ratingUsia' => '13',
+//                 'sinopsis' => 'Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.',
+//                 'sutradara' => 'Frank Darabont',
+//                 'actor' => 'Tim Robbins, Morgan Freeman, Bob Gunton',
+//             ],
+//             [
+//                 'poster_film' => 'poster-film1.jpeg',
+//                 'judul_film' => 'The Godfather',
+//                 'genre' => 'Crime, Drama',
+//                 'durasi' => '2h 55m',
+//                 'status' => 'Now Playing',
+//                 'ratingUsia' => '13',
+//                 'sinopsis' => 'An organized crime dynastys aging patriarch transfers control of his clandestine empire to his reluctant son.',
+//                 'sutradara' => 'Francis Ford Coppola',
+//                 'actor' => 'Marlon Brando, Al Pacino, James Caan',
+//             ],
+//             [
+//                 'poster_film' => 'poster-film1.jpeg',
+//                 'judul_film' => 'Pulp Fiction',
+//                 'genre' => 'Crime, Drama',
+//                 'durasi' => '2h 34m',
+//                 'status' => 'Coming Soon',
+//                 'ratingUsia' => '13',
+//                 'sinopsis' => 'The lives of two mob hitmen, a boxer, a gangster and his wife, and a pair of diner bandits intertwine in four tales of violence and redemption.',
+//                 'sutradara' => 'Quentin Tarantino',
+//                 'actor' => 'John Travolta, Uma Thurman, Samuel L. Jackson',
+//             ],
+//             [
+//                 'poster_film' => 'poster-film1.jpeg',
+//                 'judul_film' => 'The Dark Knight',
+//                 'genre' => 'Action, Crime, Drama',
+//                 'durasi' => '2h 32m',
+//                 'status' => 'Coming Soon',
+//                 'ratingUsia' => '13',
+//                 'sinopsis' => 'When the menace known as The Joker emerges from his mysterious past, he wreaks havoc and chaos on the people of Gotham.',
+//                 'sutradara' => 'Christopher Nolan',
+//                 'actor' => 'Christian Bale, Heath Ledger, Aaron Eckhart',
+//             ],
+//             [
+//                 'poster_film' => 'poster-film1.jpeg',
+//                 'judul_film' => 'Schindler\'s List',
+//                 'genre' => 'Biography, Drama, History',
+//                 'durasi' => '3h 15m',
+//                 'status' => 'Not Show',
+//                 'ratingUsia' => '13',
+//                 'sinopsis' => 'In German-occupied Poland during World War II, industrialist Oskar Schindler gradually becomes concerned for his Jewish workforce after witnessing their persecution by the Nazis.',
+//                 'sutradara' => 'Steven Spielberg',
+//                 'actor' => 'Liam Neeson, Ralph Fiennes, Ben Kingsley',
+//             ],
+//         ],
+//     ]);
+// });
 
 Route::get('/Data-Makanan', function () {
     return view('admin/dataMakanan',[
@@ -495,21 +516,21 @@ Route::get('/Data-Makanan', function () {
     ]);
 });
 
-Route::get('/Tambah-Film', function () {
-    return view('admin/tambahFilm',[
-        'title' => 'data_film',
-        'foto_profile' => 'user2.jpg',
-        'name' => 'Budi Subawa',
-    ]);
-});
+// Route::get('/Tambah-Film', function () {
+//     return view('admin/tambahFilm',[
+//         'title' => 'data_film',
+//         'foto_profile' => 'user2.jpg',
+//         'name' => 'Budi Subawa',
+//     ]);
+// });
 
-Route::get('/Edit-Film', function () {
-    return view('admin/editFilm',[
-        'title' => 'data_film',
-        'foto_profile' => 'user2.jpg',
-        'name' => 'Budi Subawa',
-    ]);
-});
+// Route::get('/Edit-Film', function () {
+//     return view('admin/editFilm',[
+//         'title' => 'data_film',
+//         'foto_profile' => 'user2.jpg',
+//         'name' => 'Budi Subawa',
+//     ]);
+// });
 
 Route::get('/Tambah-Makanan', function () {
     return view('admin/tambahMakanan',[
