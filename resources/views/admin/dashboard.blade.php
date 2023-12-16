@@ -46,8 +46,8 @@
               <span class="nav_logo-name">Kinema</span> 
             </a>
             <div class="nav_list">
-                <a href="/" class="nav_link"><img src="/img/admin2.jpg" alt="" class="rounded-circle" id="profile"><span class="nav_name">Admin</span> </a>
-                <a href="/Admin" class="nav_link"><i class='bx bx-grid-alt nav_icon'></i> <span class="nav_name">Dashboard</span> </a> 
+                <a href="{{ route('dashboard') }}" class="nav_link"><img src="/img/admin2.jpg" alt="" class="rounded-circle" id="profile"><span class="nav_name">Admin</span> </a>
+                <a href="{{ route('dashboard') }}" class="nav_link"><i class='bx bx-grid-alt nav_icon'></i> <span class="nav_name">Dashboard</span> </a> 
                 <a href="{{ url('admin/movie') }}" class="nav_link"><i class='bx bx-film nav_icon'></i> <span class="nav_name">Film</span> </a>
                 <a href="{{ url('admin/food') }}" class="nav_link"><i class='fa-solid fa-pizza-slice nav_icon'></i> <span class="nav_name">Food</span> </a>
             </div>

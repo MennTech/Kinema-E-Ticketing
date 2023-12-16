@@ -4,25 +4,62 @@
     <div class="content">
         <h1 class="text-primary-emphasis fw-bold" style="margin-top: 75px">Dashboard</h1>
         <div class="d-flex flex-wrap justify-content-between align-items-center me-3">
-            @foreach ($card as $item)
-                <div class="card" style="width: 18rem">
-                    <div class="card-body">
-                        <div class="row inline g-3">
-                            <div class="col-4 p-0">
-                                <img src="img/{{ $item['images'] }}" class="rounded w-100">
-                            </div>
-                            <div class="col-auto pt-3">
-                                <p>{{ $item['card_title'] }}</p>
-                                @if ($item['card_title']==='Ticket Sale' || $item['card_title']==='Food Sale')
-                                    <p>{{ $item['value'] }} PCS</p>
-                                @elseif($item['card_title']==='Income Today' || $item['card_title']==='Income Total')
-                                    <p>Rp. {{ number_format($item['value'],0,',') }}</p>
-                                @endif
-                            </div>
+            {{-- Card 1 --}}
+            <div class="card" style="width: 18rem">
+                <div class="card-body">
+                    <div class="row inline g-3">
+                        <div class="col-4 p-0">
+                            <img src="/img/ticket.jpg" alt="" class="rounded w-100">
+                        </div>
+                        <div class="col-auto pt-3 ms-2">
+                            <p>Ticket Sale</p>
+                            <p>100 PCS</p>
                         </div>
                     </div>
                 </div>
-            @endforeach
+            </div>
+            {{-- Card 2 --}}
+            <div class="card" style="width: 18rem">
+                <div class="card-body">
+                    <div class="row inline g-3">
+                        <div class="col-4 p-0">
+                            <img src="/img/food.jpg" alt="" class="rounded w-100">
+                        </div>
+                        <div class="col-auto pt-3">
+                            <p>Food Sale</p>
+                            <p>100 PCS</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{-- Card 3 --}}
+            <div class="card" style="width: 18rem">
+                <div class="card-body">
+                    <div class="row inline g-3">
+                        <div class="col-4 p-0">
+                            <img src="/img/income.jpg" alt="" class="rounded w-100">
+                        </div>
+                        <div class="col-auto pt-3">
+                            <p>Income</p>
+                            <p>Rp 1.000.000</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{-- Card 4 --}}
+            <div class="card" style="width: 18rem">
+                <div class="card-body">
+                    <div class="row inline g-3">
+                        <div class="col-4 p-0">
+                            <img src="/img/income.jpg" alt="" class="rounded w-100">
+                        </div>
+                        <div class="col-auto pt-3">
+                            <p>Income</p>
+                            <p>Rp 1.000.000</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="card mb-4 mt-5 me-3 rounded bg-white">
             <div class="card-body">
@@ -40,15 +77,36 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($table_value as $item)
+                                @foreach ($user as $item)
                                 <tr>
                                     <th>{{ $loop->iteration }}</th>
-                                    <td>{{ $item['name'] }}</td>
-                                    <td>{{ $item['email'] }}</td>
-                                    <td>{{ $item['no_telp'] }}</td>
-                                    <td>{{ $item['create_date'] }}</td>
-                                    <td><button class="btn btn-danger" type="button"  data-bs-toggle="modal" data-bs-target="#konfirmasiModal">Delete</button></td>
+                                    <td>{{ $item->username }}</td>
+                                    <td>{{ $item->email }}</td>
+                                    <td>{{ $item->no_telp }}</td>
+                                    <td>{{ date('d-m-Y', strtotime($item->created_at))}}</td>
+                                    <td><button class="btn btn-danger"  data-bs-toggle="modal" data-bs-target="#konfirmasiModal" data-user="{{ json_encode('$item') }}">Delete</button></td>
                                 </tr>
+                                <div class="modal fade" id="konfirmasiModal" tabindex="-1" aria-labelledby="konfirmasiModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                      <div class="modal-content">
+                                        <div class="modal-header">
+                                          <h1 class="modal-title fs-5" id="konfirmasiModalLabel">Delete Data</h1>
+                                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                          Apakah anda yakin ingin menghapus data ini?
+                                        </div>
+                                        <div class="modal-footer">
+                                          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+                                          <form action="{{ route('user.destroy', $item->id) }}" method="POST">
+                                            @csrf
+                                            @method('DELETE')
+                                              <button class="btn btn-primary" type="submit" data-bs-dismiss="modal" id="deleteToastBtn">Save</button>
+                                          </form>
+                                        </div>
+                                      </div>
+                                    </div>
+                                </div>
                                 @endforeach
                             </tbody>
                         </table>
@@ -61,25 +119,6 @@
                     <i class="fa fa-check text-white"></i> Berhasil Hapus User
                 </div>
             </div>
-        </div>
-    </div>
-
-    <div class="modal fade" id="konfirmasiModal" tabindex="-1" aria-labelledby="konfirmasiModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h1 class="modal-title fs-5" id="konfirmasiModalLabel">Delete Data</h1>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-              Apakah anda yakin ingin menghapus data ini?
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
-              <button class="btn btn-primary" type="button" data-bs-dismiss="modal" id="deleteToastBtn">Save</button>
-              {{-- <a href="/Data-Film" type="button" class="btn btn-primary" id="deleteToastBtn">Save</a> --}}
-            </div>
-          </div>
         </div>
     </div>
 @endsection

@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\admin;
 
 use Illuminate\Http\Request;
-
+use App\Http\Controllers\Controller;
 use App\Models\Food;
 use Illuminate\Support\Facades\File; 
 
-class FoodController extends Controller
+class FoodController extends Controller     
 {
     public function index()
     {

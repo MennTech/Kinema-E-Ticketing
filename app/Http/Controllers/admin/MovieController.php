@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\admin;
 
 use Illuminate\Http\Request;
 use App\Models\Movie;
-use Exception;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\File; 
 
 class MovieController extends Controller
