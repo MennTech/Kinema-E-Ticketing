@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\MovieController;
+use App\Http\Controllers\UserMovieController;
+use App\Http\Controllers\FoodController;
 
 /*
 |--------------------------------------------------------------------------
@@ -130,114 +132,116 @@ use App\Http\Controllers\MovieController;
 //     return view('user/pages/index', compact('table_film', 'filtered_films', 'tab'));
 // });
 
-Route::get('/', function(){
-    return view('user/pages/index',
-    [
-        'foto_profile' => 'admin2.jpg',
-        'name' => 'Trisna Utama',
-        'table_film' => [
-            [
-                'poster_film' => 'poster-film1.jpeg',
-                'judul_film' => 'Avengers: Endgame',
-                'genre' => 'Action, Adventure, Drama',
-                'durasi' => '3h 1m',
-                'status' => 'Now Playing',
-                'ratingUsia' => '13',
-                'sinopsis' => 'After the devastating events of Avengers: Infinity War (2018), the universe is in ruins.',
-                'sutradara' => 'Anthony Russo, Joe Russo',
-                'actor' => 'Robert Downey Jr., Chris Evans, Mark Ruffalo',
-            ],
-            [
-                'poster_film' => 'poster-film1.jpeg',
-                'judul_film' => 'The Shawshank Redemption',
-                'genre' => 'Drama',
-                'durasi' => '2h 22m',
-                'status' => 'Now Playing',
-                'ratingUsia' => '13',
-                'sinopsis' => 'Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.',
-                'sutradara' => 'Frank Darabont',
-                'actor' => 'Tim Robbins, Morgan Freeman, Bob Gunton',
-            ],
-            [
-                'poster_film' => 'poster-film1.jpeg',
-                'judul_film' => 'The Godfather',
-                'genre' => 'Crime, Drama',
-                'durasi' => '2h 55m',
-                'status' => 'Now Playing',
-                'ratingUsia' => '13',
-                'sinopsis' => 'An organized crime dynastys aging patriarch transfers control of his clandestine empire to his reluctant son.',
-                'sutradara' => 'Francis Ford Coppola',
-                'actor' => 'Marlon Brando, Al Pacino, James Caan',
-            ],
-            [
-                'poster_film' => 'poster-film1.jpeg',
-                'judul_film' => 'Avengers: Endgame',
-                'genre' => 'Action, Adventure, Drama',
-                'durasi' => '3h 1m',
-                'status' => 'Now Playing',
-                'ratingUsia' => '13',
-                'sinopsis' => 'After the devastating events of Avengers: Infinity War (2018), the universe is in ruins.',
-                'sutradara' => 'Anthony Russo, Joe Russo',
-                'actor' => 'Robert Downey Jr., Chris Evans, Mark Ruffalo',
-            ],
-            [
-                'poster_film' => 'poster-film1.jpeg',
-                'judul_film' => 'The Shawshank Redemption',
-                'genre' => 'Drama',
-                'durasi' => '2h 22m',
-                'status' => 'Now Playing',
-                'ratingUsia' => '13',
-                'sinopsis' => 'Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.',
-                'sutradara' => 'Frank Darabont',
-                'actor' => 'Tim Robbins, Morgan Freeman, Bob Gunton',
-            ],
-            [
-                'poster_film' => 'poster-film1.jpeg',
-                'judul_film' => 'The Godfather',
-                'genre' => 'Crime, Drama',
-                'durasi' => '2h 55m',
-                'status' => 'Now Playing',
-                'ratingUsia' => '13',
-                'sinopsis' => 'An organized crime dynastys aging patriarch transfers control of his clandestine empire to his reluctant son.',
-                'sutradara' => 'Francis Ford Coppola',
-                'actor' => 'Marlon Brando, Al Pacino, James Caan',
-            ],
-            [
-                'poster_film' => 'poster-film1.jpeg',
-                'judul_film' => 'Pulp Fiction',
-                'genre' => 'Crime, Drama',
-                'durasi' => '2h 34m',
-                'status' => 'Coming Soon',
-                'ratingUsia' => '13',
-                'sinopsis' => 'The lives of two mob hitmen, a boxer, a gangster and his wife, and a pair of diner bandits intertwine in four tales of violence and redemption.',
-                'sutradara' => 'Quentin Tarantino',
-                'actor' => 'John Travolta, Uma Thurman, Samuel L. Jackson',
-            ],
-            [
-                'poster_film' => 'poster-film1.jpeg',
-                'judul_film' => 'The Dark Knight',
-                'genre' => 'Action, Crime, Drama',
-                'durasi' => '2h 32m',
-                'status' => 'Coming Soon',
-                'ratingUsia' => '13',
-                'sinopsis' => 'When the menace known as The Joker emerges from his mysterious past, he wreaks havoc and chaos on the people of Gotham.',
-                'sutradara' => 'Christopher Nolan',
-                'actor' => 'Christian Bale, Heath Ledger, Aaron Eckhart',
-            ],
-            [
-                'poster_film' => 'poster-film1.jpeg',
-                'judul_film' => 'Schindler\'s List',
-                'genre' => 'Biography, Drama, History',
-                'durasi' => '3h 15m',
-                'status' => 'Not Show',
-                'ratingUsia' => '13',
-                'sinopsis' => 'In German-occupied Poland during World War II, industrialist Oskar Schindler gradually becomes concerned for his Jewish workforce after witnessing their persecution by the Nazis.',
-                'sutradara' => 'Steven Spielberg',
-                'actor' => 'Liam Neeson, Ralph Fiennes, Ben Kingsley',
-            ],
-        ],
-    ]);
-});
+// Route::get('/', function(){
+//     return view('user/pages/index',
+//     [
+//         'foto_profile' => 'admin2.jpg',
+//         'name' => 'Trisna Utama',
+//         'table_film' => [
+//             [
+//                 'poster_film' => 'poster-film1.jpeg',
+//                 'judul_film' => 'Avengers: Endgame',
+//                 'genre' => 'Action, Adventure, Drama',
+//                 'durasi' => '3h 1m',
+//                 'status' => 'Now Playing',
+//                 'ratingUsia' => '13',
+//                 'sinopsis' => 'After the devastating events of Avengers: Infinity War (2018), the universe is in ruins.',
+//                 'sutradara' => 'Anthony Russo, Joe Russo',
+//                 'actor' => 'Robert Downey Jr., Chris Evans, Mark Ruffalo',
+//             ],
+//             [
+//                 'poster_film' => 'poster-film1.jpeg',
+//                 'judul_film' => 'The Shawshank Redemption',
+//                 'genre' => 'Drama',
+//                 'durasi' => '2h 22m',
+//                 'status' => 'Now Playing',
+//                 'ratingUsia' => '13',
+//                 'sinopsis' => 'Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.',
+//                 'sutradara' => 'Frank Darabont',
+//                 'actor' => 'Tim Robbins, Morgan Freeman, Bob Gunton',
+//             ],
+//             [
+//                 'poster_film' => 'poster-film1.jpeg',
+//                 'judul_film' => 'The Godfather',
+//                 'genre' => 'Crime, Drama',
+//                 'durasi' => '2h 55m',
+//                 'status' => 'Now Playing',
+//                 'ratingUsia' => '13',
+//                 'sinopsis' => 'An organized crime dynastys aging patriarch transfers control of his clandestine empire to his reluctant son.',
+//                 'sutradara' => 'Francis Ford Coppola',
+//                 'actor' => 'Marlon Brando, Al Pacino, James Caan',
+//             ],
+//             [
+//                 'poster_film' => 'poster-film1.jpeg',
+//                 'judul_film' => 'Avengers: Endgame',
+//                 'genre' => 'Action, Adventure, Drama',
+//                 'durasi' => '3h 1m',
+//                 'status' => 'Now Playing',
+//                 'ratingUsia' => '13',
+//                 'sinopsis' => 'After the devastating events of Avengers: Infinity War (2018), the universe is in ruins.',
+//                 'sutradara' => 'Anthony Russo, Joe Russo',
+//                 'actor' => 'Robert Downey Jr., Chris Evans, Mark Ruffalo',
+//             ],
+//             [
+//                 'poster_film' => 'poster-film1.jpeg',
+//                 'judul_film' => 'The Shawshank Redemption',
+//                 'genre' => 'Drama',
+//                 'durasi' => '2h 22m',
+//                 'status' => 'Now Playing',
+//                 'ratingUsia' => '13',
+//                 'sinopsis' => 'Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.',
+//                 'sutradara' => 'Frank Darabont',
+//                 'actor' => 'Tim Robbins, Morgan Freeman, Bob Gunton',
+//             ],
+//             [
+//                 'poster_film' => 'poster-film1.jpeg',
+//                 'judul_film' => 'The Godfather',
+//                 'genre' => 'Crime, Drama',
+//                 'durasi' => '2h 55m',
+//                 'status' => 'Now Playing',
+//                 'ratingUsia' => '13',
+//                 'sinopsis' => 'An organized crime dynastys aging patriarch transfers control of his clandestine empire to his reluctant son.',
+//                 'sutradara' => 'Francis Ford Coppola',
+//                 'actor' => 'Marlon Brando, Al Pacino, James Caan',
+//             ],
+//             [
+//                 'poster_film' => 'poster-film1.jpeg',
+//                 'judul_film' => 'Pulp Fiction',
+//                 'genre' => 'Crime, Drama',
+//                 'durasi' => '2h 34m',
+//                 'status' => 'Coming Soon',
+//                 'ratingUsia' => '13',
+//                 'sinopsis' => 'The lives of two mob hitmen, a boxer, a gangster and his wife, and a pair of diner bandits intertwine in four tales of violence and redemption.',
+//                 'sutradara' => 'Quentin Tarantino',
+//                 'actor' => 'John Travolta, Uma Thurman, Samuel L. Jackson',
+//             ],
+//             [
+//                 'poster_film' => 'poster-film1.jpeg',
+//                 'judul_film' => 'The Dark Knight',
+//                 'genre' => 'Action, Crime, Drama',
+//                 'durasi' => '2h 32m',
+//                 'status' => 'Coming Soon',
+//                 'ratingUsia' => '13',
+//                 'sinopsis' => 'When the menace known as The Joker emerges from his mysterious past, he wreaks havoc and chaos on the people of Gotham.',
+//                 'sutradara' => 'Christopher Nolan',
+//                 'actor' => 'Christian Bale, Heath Ledger, Aaron Eckhart',
+//             ],
+//             [
+//                 'poster_film' => 'poster-film1.jpeg',
+//                 'judul_film' => 'Schindler\'s List',
+//                 'genre' => 'Biography, Drama, History',
+//                 'durasi' => '3h 15m',
+//                 'status' => 'Not Show',
+//                 'ratingUsia' => '13',
+//                 'sinopsis' => 'In German-occupied Poland during World War II, industrialist Oskar Schindler gradually becomes concerned for his Jewish workforce after witnessing their persecution by the Nazis.',
+//                 'sutradara' => 'Steven Spielberg',
+//                 'actor' => 'Liam Neeson, Ralph Fiennes, Ben Kingsley',
+//             ],
+//         ],
+//     ]);
+// });
+
+Route::get('/', [UserMovieController::class, 'index']);
 
 Route::get('/detail', function(){
     return view('user/pages/detail', [
@@ -378,7 +382,9 @@ Route::get('/Admin', function () {
     ]);
 });
 
-Route::resource('/movie', MovieController::class);
+Route::resource('/admin/movie', MovieController::class);
+
+Route::resource('/admin/food',FoodController::class);
 
 // Route::get('/Data-Film', function () {
 //     return view('admin/dataFilm',[
@@ -457,64 +463,64 @@ Route::resource('/movie', MovieController::class);
 //     ]);
 // });
 
-Route::get('/Data-Makanan', function () {
-    return view('admin/dataMakanan',[
-        'title' => 'data_makanan',
-        'foto_profile' => 'user2.jpg',
-        'name' => 'Budi Subawa',
-        'tabel_makanan' =>
-        [
-            [
-                'gambar_makanan' => 'makanan1.jpg',
-                'nama_makanan' => 'Popcorn',
-                'stock' => '50',
-                'harga' => '20000',
-            ],
-            [
-                'gambar_makanan' => 'makanan1.jpg',
-                'nama_makanan' => 'Nachos',
-                'stock' => '30',
-                'harga' => '25000',
-            ],
-            [
-                'gambar_makanan' => 'makanan1.jpg',
-                'nama_makanan' => 'Hot Dog',
-                'stock' => '40',
-                'harga' => '30000',
-            ],
-            [
-                'gambar_makanan' => 'makanan1.jpg',
-                'nama_makanan' => 'Ice Cream',
-                'stock' => '25',
-                'harga' => '18000',
-            ],
-            [
-                'gambar_makanan' => 'makanan1.jpg',
-                'nama_makanan' => 'Soft Drink',
-                'stock' => '60',
-                'harga' => '15000',
-            ],
-            [
-                'gambar_makanan' => 'makanan1.jpg',
-                'nama_makanan' => 'Candy',
-                'stock' => '35',
-                'harga' => '10000',
-            ],
-            [
-                'gambar_makanan' => 'makanan1.jpg',
-                'nama_makanan' => 'Pretzel',
-                'stock' => '20',
-                'harga' => '22000',
-            ],
-            [
-                'gambar_makanan' => 'makanan1.jpg',
-                'nama_makanan' => 'Churros',
-                'stock' => '30',
-                'harga' => '28000',
-            ],
-        ]
-    ]);
-});
+// Route::get('/Data-Makanan', function () {
+//     return view('admin/dataMakanan',[
+//         'title' => 'data_makanan',
+//         'foto_profile' => 'user2.jpg',
+//         'name' => 'Budi Subawa',
+//         'tabel_makanan' =>
+//         [
+//             [
+//                 'gambar_makanan' => 'makanan1.jpg',
+//                 'nama_makanan' => 'Popcorn',
+//                 'stock' => '50',
+//                 'harga' => '20000',
+//             ],
+//             [
+//                 'gambar_makanan' => 'makanan1.jpg',
+//                 'nama_makanan' => 'Nachos',
+//                 'stock' => '30',
+//                 'harga' => '25000',
+//             ],
+//             [
+//                 'gambar_makanan' => 'makanan1.jpg',
+//                 'nama_makanan' => 'Hot Dog',
+//                 'stock' => '40',
+//                 'harga' => '30000',
+//             ],
+//             [
+//                 'gambar_makanan' => 'makanan1.jpg',
+//                 'nama_makanan' => 'Ice Cream',
+//                 'stock' => '25',
+//                 'harga' => '18000',
+//             ],
+//             [
+//                 'gambar_makanan' => 'makanan1.jpg',
+//                 'nama_makanan' => 'Soft Drink',
+//                 'stock' => '60',
+//                 'harga' => '15000',
+//             ],
+//             [
+//                 'gambar_makanan' => 'makanan1.jpg',
+//                 'nama_makanan' => 'Candy',
+//                 'stock' => '35',
+//                 'harga' => '10000',
+//             ],
+//             [
+//                 'gambar_makanan' => 'makanan1.jpg',
+//                 'nama_makanan' => 'Pretzel',
+//                 'stock' => '20',
+//                 'harga' => '22000',
+//             ],
+//             [
+//                 'gambar_makanan' => 'makanan1.jpg',
+//                 'nama_makanan' => 'Churros',
+//                 'stock' => '30',
+//                 'harga' => '28000',
+//             ],
+//         ]
+//     ]);
+// });
 
 // Route::get('/Tambah-Film', function () {
 //     return view('admin/tambahFilm',[
@@ -532,21 +538,21 @@ Route::get('/Data-Makanan', function () {
 //     ]);
 // });
 
-Route::get('/Tambah-Makanan', function () {
-    return view('admin/tambahMakanan',[
-        'title' => 'data_makanan',
-        'foto_profile' => 'user2.jpg',
-        'name' => 'Budi Subawa',
-    ]);
-});
+// Route::get('/Tambah-Makanan', function () {
+//     return view('admin/tambahMakanan',[
+//         'title' => 'data_makanan',
+//         'foto_profile' => 'user2.jpg',
+//         'name' => 'Budi Subawa',
+//     ]);
+// });
 
-Route::get('/Edit-Makanan', function () {
-    return view('admin/editMakanan',[
-        'title' => 'data_makanan',
-        'foto_profile' => 'user2.jpg',
-        'name' => 'Budi Subawa',
-    ]);
-});
+// Route::get('/Edit-Makanan', function () {
+//     return view('admin/editMakanan',[
+//         'title' => 'data_makanan',
+//         'foto_profile' => 'user2.jpg',
+//         'name' => 'Budi Subawa',
+//     ]);
+// });
 
 Route::get('/Profile', function () {
     return view('user/pages/profile',[

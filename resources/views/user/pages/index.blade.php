@@ -28,11 +28,11 @@
         <h3 class="p-2 text-white mt-5" style="max-width: 180px; background-color: #052c65;">Now Playing</h3>
         <div class="mt-3">
             <div class="row">
-                @foreach ($table_film as $item)
-                    @if ($item['status'] == "Now Playing")
+                @foreach ($movie as $item)
+                    @if ($item->status == "Now Playing")
                         <div class="col-3 mt-3 mb-2 float-start">
-                            <a href="/detail"><img src="img/{{ $item['poster_film'] }}" alt="" class="w-100"></a>
-                            <h5 class="text-center mt-2">{{ $item['judul_film'] }}</h5>
+                            <a href="/detail"><img src="poster_film/{{ $item->poster }}" alt="" class="w-100"></a>
+                            <h5 class="text-center mt-2">{{ $item->judul_film }}</h5>
                         </div>
                     @endif
                 @endforeach
@@ -41,11 +41,11 @@
         <h3 class="p-2 text-white mt-5" style="max-width: 190px; background-color: #052c65;">Coming Soon</h3>
         <div class="mt-3">
             <div class="row">
-                @foreach ($table_film as $item)
-                    @if ($item['status'] == "Coming Soon")
+                @foreach ($movie as $item)
+                    @if ($item->status == "Coming Soon")
                         <div class="col-3 mt-3 mb-2 float-start">
-                            <a href=""><img src="img/{{ $item['poster_film'] }}" alt="" class="w-100"></a>
-                            <h5 class="text-center mt-2">{{ $item['judul_film'] }}</h5>
+                            <a href=""><img src="poster_film/{{ $item->poster }}" alt="" class="w-100"></a>
+                            <h5 class="text-center mt-2">{{ $item->judul_film }}</h5>
                         </div>
                     @endif
                 @endforeach

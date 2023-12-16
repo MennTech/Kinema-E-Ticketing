@@ -11,7 +11,7 @@ class MovieController extends Controller
 {
     public function index(){
         $movie = Movie::all();
-        return view('admin/movie/dataFilm', ['movie' => $movie]);
+        return view('admin/movie/dataFilm', compact('movie'));
     }
 
     public function create(){
@@ -51,16 +51,12 @@ class MovieController extends Controller
             'poster'=> $imagesName,
         ]);
 
-        try {
-            return redirect()->route('admin/movie/dataFilm');
-        } catch (Exception $e) {
-            return redirect()->route('admin/movie/dataFilm');
-        }
+        return redirect()->route('movie.index');
     }
 
     public function edit($id){
         $movie = Movie::find($id);
-        return view('admin/movie/editFilm', ['movie' => $movie]);
+        return view('admin/movie/editFilm', compact('movie'));
     }
 
     public function update(Request $request, $id){
@@ -74,7 +70,7 @@ class MovieController extends Controller
             'sutradara'=>'required',
             'actor'=>'required',
             'sinopsis'=>'required',
-            'poster'=> 'image|required|mimes:jpeg,png,jpg',
+            'poster'=> 'image|mimes:jpeg,png,jpg',
         ]);
 
         if($request->file('poster')){
@@ -102,7 +98,7 @@ class MovieController extends Controller
 
     public function destroy($id){
         $movie = Movie::find($id);
-        File::delete(public_path('poster_film/'.$movie->image));
+        File::delete(public_path('poster_film/'.$movie->poster));
         $movie->delete();
         return redirect()->back()->with('success', 'Data berhasil dihapus');
     }
