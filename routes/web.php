@@ -4,56 +4,26 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
-use App\Http\Controllers\admin\MovieController;
+use App\Http\Controllers\admin\MovieController as adminMovie;
 use App\Http\Controllers\admin\FoodController;
 use App\Http\Controllers\admin\UserController;
-use App\Http\Controllers\UserMovieController;
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
+use App\Http\Controllers\user\MovieController as userMovie;
+use App\Http\Controllers\user\OrderTicketController;
 
-Route::get('/', [UserMovieController::class, 'index']);
+Route::middleware('auth')->group(function(){
+    Route::get('logout', [LoginController::class, 'actionLogout'])->name('actionLogout');
 
-Route::get('/detail', function(){
-    return view('user/pages/detail', [
-        'foto_profile' => 'admin2.jpg',
-        'name' => 'Trisna Utama',
-        'table_film' => [
-            'poster_film' => 'poster-film1.jpeg',
-            'judul_film' => 'Avengers: Endgame',
-            'genre' => 'Action, Adventure, Drama',
-            'durasi' => '181',
-            'status' => 'Now Playing',
-            'ratingUsia' => '13',
-            'sinopsis' => 'After the devastating events of Avengers: Infinity War (2018), the universe is in ruins.',
-            'sutradara' => 'Anthony Russo, Joe Russo',
-            'actor' => 'Robert Downey Jr., Chris Evans, Mark Ruffalo',
-        ],
-        'jadwal'=>[
-            'tanggal' => date('d-F-Y'),
-            'jam' => [
-                '09:15',
-                '12:45',
-                '15:30',
-                '19:15',
-            ],
-            'harga' => '35000',
-        ]
-    ]);
+    Route::get('/admin/dashboard', [UserController::class, 'index'])->name('dashboard');
+    Route::delete('/admin/dashboard/{id}', [UserController::class, 'destroy'])->name('user.destroy');
+    Route::resource('/admin/movie', adminMovie::class);
+    Route::resource('/admin/food', FoodController::class);
+
+    Route::get('/choose_seat/{id}', [OrderTicketController::class, 'choose_seat'])->name('choose_seat');
+    Route::post('/order_ticket', [OrderTicketController::class, 'order_ticket'])->name('order_ticket');
 });
 
-Route::get('/seat', function(){
-    return view('user/pages/seat', [
-        'foto_profile' => 'admin2.jpg',
-    ]);
-});
+Route::get('/', [userMovie::class, 'index'])->name('home');
+Route::get('/detail/{id}', [userMovie::class, 'detailMovie'])->name('detailMovie');
 
 Route::get('/food', function(){
     return view('user/pages/food', [
@@ -96,8 +66,7 @@ Route::get('/food', function(){
 //Login
 Route::get('/login', function () {
     return view('auth/login');
-});
-
+})->name('login');
 Route::post('actionLogin', [LoginController::class, 'actionLogin'])->name('actionLogin');
 //end Login
 
@@ -108,17 +77,6 @@ Route::get('/register', function () {
 Route::post('register/action', [RegisterController::class, 'actionRegister'])->name('actionRegister');
 Route::get('register/verify/{verify_key}', [RegisterController::class, 'verify'])->name('verify');
 //End Register
-
-//Logout
-Route::get('logout', [LoginController::class, 'actionLogout'])->name('actionLogout')->middleware('auth');
-//End Logout
-
-Route::get('/admin/dashboard', [UserController::class, 'index'])->name('dashboard');
-Route::delete('/admin/dashboard/{id}', [UserController::class, 'destroy'])->name('user.destroy');
-
-Route::resource('/admin/movie', MovieController::class);
-
-Route::resource('/admin/food', FoodController::class);
 
 Route::get('/Profile', function () {
     return view('user/pages/profile',[

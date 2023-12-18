@@ -29,7 +29,7 @@ class LoginController extends Controller
         if(Auth::attempt($data)){
             $user = Auth::user();
             if($user->role == 'admin'){
-                return redirect('/Admin');
+                return redirect()->route('dashboard');
             }
             if($user->active){
                 return redirect('/');
@@ -45,6 +45,6 @@ class LoginController extends Controller
 
     public function actionLogout(){
         Auth::logout();
-        return redirect('/');
+        return redirect()->route('home');
     }
 }
