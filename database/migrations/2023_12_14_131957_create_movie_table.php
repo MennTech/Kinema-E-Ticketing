@@ -21,7 +21,7 @@ return new class extends Migration
             $table->integer('ratingUsia');
             $table->string('sutradara');
             $table->string('actor');
-            $table->string('sinopsis');
+            $table->longText('sinopsis');
             $table->timestamps();
         });
     }

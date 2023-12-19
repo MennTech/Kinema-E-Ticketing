@@ -14,7 +14,7 @@ class Food extends Model
     protected $fillable = [
         'image',
         'nama',
-        'stok',
+        'status',
         'harga',
     ];
 }

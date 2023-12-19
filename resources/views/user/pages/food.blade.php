@@ -13,25 +13,25 @@
         <p class="fw-semibold fs-5">Food - KINEMA HOUSE</p>
         <hr>
         <div class="row pb-3">
-            @foreach ($table_food as $item)
+            @foreach ($foods as $item)
                 <div class="col-12">
                     <div class="card my-1">
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-2">
-                                    <img src="img/{{ $item['gambar'] }}" alt="" class="w-100">
+                                    <img src="image_food/{{ $item->image }}" alt="" class="w-100">
                                 </div>
                                 <div class="col-10">
-                                    <p class="fw-medium">{{ $item['nama'] }}</p>
-                                    <p class="fw-medium" >Harga: Rp {{ $item['harga'] }}</p>
-                                    <input type="hidden" class="harga"  value="{{ $item['harga'] }}">
+                                    <p class="fw-medium">{{ $item->nama }}</p>
+                                    <p class="fw-medium" >Harga: Rp {{ $item->harga }}</p>
+                                    <input type="hidden" class="harga"  value="{{ $item->harga }}">
                                     <hr>
                                     <div class="row">
                                         <div class="col-1 pe-0">
                                             <button class="btn btn-light border-0 increment"><i class="fa-solid fa-plus"></i></button>
                                         </div>
                                         <div class="col-1 pe-0 ps-0">
-                                            <input type="number" id="{{ $item['id'] }}" class="form-control bg-white text-center jumlah" disabled value="{{ $item['jumlah'] }}">
+                                            <input type="number" class="form-control bg-white text-center jumlah" disabled value="0">
                                         </div>
                                         <div class="col-1 ps-0 ms-1">
                                             <button class="btn btn-light border-0 decrement"><i class="fa-solid fa-minus"></i></button>
@@ -47,11 +47,11 @@
         <hr>
         <div class="row">
             <div class="col-6">
-                <p class="fs-4 fw-semibold mb-0" id="total">Total: Rp {{ $total_harga }}</p>
-                <input type="hidden" value="{{ $total_harga }}" id="total_harga">
+                <p class="fs-4 fw-semibold mb-0" id="total">Total: Rp 0</p>
+                <input type="hidden" id="total_harga">
             </div>
             <div class="col-6">
-                <button class="btn btn-primary mb-0 float-end" id="btnBayar" disabled>Bayar</button>
+                <button type="button" class="btn btn-primary mb-0 float-end" id="btnBayar" onclick="bayar({{ Auth::user()->id ?? 0 }})" disabled>Bayar</button>
             </div>
         </div>
         <hr>
@@ -64,7 +64,7 @@
         let harga = document.querySelectorAll('.harga');
         let btnBayar = document.querySelector('#btnBayar');
         let totalHarga = document.querySelector('#total');
-        let totalHargaHidden = document.querySelector('#total_harga');
+        // let totalHargaHidden = document.querySelector('#total_harga');
         let total=0;
     
         increments.forEach(function(increment, index) {
@@ -101,5 +101,13 @@
         jumlahs.forEach(function(jumlah, index) {
             decrements[index].disabled = jumlah.value <= 0;
         });
+
+        function bayar(id) {
+            if (id != 0) {
+                //function store
+            } else {
+                window.location.href = "{{ route('login') }}";
+            }
+        }
     </script>
 @endsection

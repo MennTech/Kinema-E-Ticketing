@@ -26,6 +26,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2-bootstrap-theme@0.1.0-beta.10/dist/select2-bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/select2-bootstrap-theme@0.1.0-beta.10/Gruntfile.min.js"></script>
 </head>
 
 <body id="body-pd">    
@@ -50,6 +53,8 @@
                 <a href="{{ route('dashboard') }}" class="nav_link"><i class='bx bx-grid-alt nav_icon'></i> <span class="nav_name">Dashboard</span> </a> 
                 <a href="{{ url('admin/movie') }}" class="nav_link"><i class='bx bx-film nav_icon'></i> <span class="nav_name">Film</span> </a>
                 <a href="{{ url('admin/food') }}" class="nav_link"><i class='fa-solid fa-pizza-slice nav_icon'></i> <span class="nav_name">Food</span> </a>
+                <a href="{{ url('admin/studio') }}" class="nav_link"><i class="fa-solid fa-video nav_icon"></i> <span class="nav_name">Studio</span></a>
+                <a href="{{ url('admin/schedule') }}" class="nav_link"><i class="fa-solid fa-calendar-days nav_icon"></i> <span class="nav_name">Studio</span></a>
             </div>
           </div> 
         </nav>
@@ -74,6 +79,26 @@
                 width: 'resolve',
                 placeholder: 'Genre Film',
                 allowClear: true
+            });
+        });
+
+        $(document).ready(function(){
+            $('#judulFilmSelect').select2({
+                dropdownParent: $('#tambahSchedule'),
+                allowClear: true,
+                width: 'resolve',
+                placeholder: 'Pilih Film',
+                theme: 'bootstrap'
+            });
+        });
+
+        $(document).ready(function(){
+            $('#namaStudio').select2({
+                dropdownParent: $('#tambahSchedule'),
+                allowClear: true,
+                width: 'resolve',
+                placeholder: 'Pilih Studio',
+                theme: 'bootstrap'
             });
         });
     </script>

@@ -19,9 +19,18 @@
                     @enderror
                 </div>
                 <div class="col-3">
-                  <label for="stockInput" class="form-label">Stock Makanan</label>
-                  <input type="number" class="form-control @error('stok') is-invalid @enderror" id="stockInput" name="stok" value="{{ old('stok', $food->stok) }}">
-                  @error('stok')
+                  <label for="statusSelect" class="form-label">Status Makanan</label>
+                  <select name="status" id="statusSelect" class="form-select">
+                    <option value="" disabled>Pilih Status</option>
+                    @if ($food->status == 'Ready')
+                        <option value="Ready" selected>Ready</option>
+                        <option value="Empty">Empty</option>
+                    @else
+                        <option value="Ready">Ready</option>
+                        <option value="Empty" selected>Empty</option>
+                    @endif
+                  </select>
+                  @error('status')
                     <div class="invalid-feedback">
                         {{ $message }}
                     </div>

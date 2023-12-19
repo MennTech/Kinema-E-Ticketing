@@ -18,13 +18,17 @@
                          @enderror
                     </div>
                     <div class="col-3">
-                        <label for="stockInput" class="form-label">Stock Makanan</label>
-                        <input type="number" class="form-control @error('stok') is-invalid @enderror" id="stockInput" name="stok" value="{{ old('stok') }}">
-                        @error('stok')
-                          <div class="invalid-feedback">
-                              {{ $message }}
-                          </div>
-                        @enderror
+                      <label for="statusSelect" class="form-label">Status Makanan</label>
+                      <select name="status" id="statusSelect" class="form-select  @error('status') is-invalid @enderror">
+                        <option value="" disabled selected>Pilih Status</option>
+                        <option value="Ready">Ready</option>
+                        <option value="Empty">Empty</option>
+                      </select>
+                      @error('status')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                      @enderror
                     </div>
                     <div class="col-3">
                         <label for="hargaInput" class="form-label">Harga Makanan</label>

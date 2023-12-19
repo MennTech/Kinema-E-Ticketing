@@ -1,6 +1,32 @@
 @extends('user/pages/landingPage')
 
 @section('content')
+    <style>
+        .profile-picture-container {
+            position: relative;
+            cursor: pointer;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            opacity: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            transition: opacity 0.3s ease;
+            border-radius: 50%;
+        }
+
+        .profile-picture-container:hover .overlay {
+            opacity: 1;
+        }
+    </style>
     <div class="contents mb-3">
         <div class="row">
             <div class="col-12">
@@ -9,19 +35,28 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-2 border-end">
-                                <img src="img/{{ $foto_profile }}" alt="profile" class="rounded-circle w-100">
+                                <form action="{{ route('profile.updateProfileImage') }}" method="post" enctype="multipart/form-data" id="profile-form">
+                                    @csrf
+                                    @method('PUT')
+                                    <label for="profile-picture" class="profile-picture-container">
+                                        <img src="{{ asset('/avatar/'.$user->profile_picture) }}" alt="profile" id="profile-image" style="border-radius: 50%;width: 185px; height: 185px;">
+                                        <div class="overlay">
+                                            <i class="fa-solid fa-image"></i>
+                                        </div>
+                                    </label>
+                                    <input type="file" id="profile-picture" style="display: none" name="profile_picture" onchange="updateProfileImage()" accept="image/*">
+                                </form>
                             </div>
                             <div class="col-8">
                                 <h1>Profile:</h1><br>
-                                <p>Username: {{ Auth::user()->username }}</p>
-                                <p>Email: {{ Auth::user()->email }}</p>
-                                <p>No Handphone: {{ Auth::user()->no_telp }}</p>
+                                <p>Username: {{ $user->username }}</p>
+                                <p>Email: {{ $user->email }}</p>
+                                <p>No Handphone: {{ $user->no_telp }}</p>
                             </div>
                             <div class="col-2">
                                 <button type="button" class="btn btn-warning float-end" data-bs-toggle="modal" data-bs-target="#editProfileModal">
                                     <i class="fa-solid fa-pen-to-square"></i> Edit Profile
                                   </button>
-                                {{-- <a href="/Edit-Profile" class="button btn btn-warning float-end" role="button"><i class="fa-solid fa-pen-to-square"></i> Edit Profile</a> --}}
                             </div>
                         </div>
                     </div>
@@ -30,14 +65,14 @@
                 <div class="card mt-3 d-block d-lg-none">
                     <div class="card-body">
                         <div class="row d-flex justify-content-center">
-                            <img src="img/{{ $foto_profile }}" alt="" class=" rounded-circle w-50">
+                            <img src="{{ asset('/avatar/'.$user->profile_picture) }}" alt="profile" class="rounded-circle w-100">
                         </div>
                         <div class="row d-flex justify-content-between mt-3">
                             <div class="col-6">
                                 <p>Username:</p>
                             </div>
                             <div class="col-6">
-                                <p class="d-flex justify-content-end">{{ Auth::user()->username }}</p>
+                                <p class="d-flex justify-content-end">{{ $user->username }}</p>
                             </div>
                             
                         </div>
@@ -46,7 +81,7 @@
                                 <p>Email:</p>
                             </div>
                             <div class="col-6">
-                                <p class="d-flex justify-content-end">{{ Auth::user()->email }}</p>
+                                <p class="d-flex justify-content-end">{{ $user->email }}</p>
                             </div>
                             
                         </div>
@@ -55,7 +90,7 @@
                                 <p>No Hp:</p>
                             </div>
                             <div class="col-6">
-                                <p class="d-flex justify-content-end">{{ Auth::user()->no_telp }}</p>
+                                <p class="d-flex justify-content-end">{{ $user->no_telp }}</p>
                             </div> 
                         </div>
                         <div class="row">
@@ -116,48 +151,34 @@
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <div class="row">
-                    <div class="col-12">
-                        <label for="usernameInput" class="form-label">Username</label>
-                        <input type="text" id="usernameInput" value="{{ Auth::user()->username }}" class="form-control">
+                <form action="{{ route('profile.update') }}" method="POST" id="formProfile">
+                    @csrf
+                    @method('PUT')
+                    <div class="row">
+                        <div class="col-12">
+                            <label for="usernameInput" class="form-label">Username</label>
+                            <input type="text" id="usernameInput" value="{{ $user->username }}" class="form-control" name="username">
+                        </div>
                     </div>
-                </div>
-                {{-- <div class="row">
-                    <div class="col-12">
-                        <label for="emailInput" class="form-label">Email</label>
-                        <input type="email" id="emailInput" value="{{ $email }}" class="form-control">
+                    <div class="row">
+                        <div class="col-12">
+                            <label for="noHPInput" class="form-label">No Handphone</label>
+                            <input type="number" id="noHPInput" value="{{ $user->no_telp }}" class="form-control" name="no_telp">
+                        </div>
                     </div>
-                </div> --}}
-                <div class="row">
-                    <div class="col-12">
-                        <label for="noHPInput" class="form-label">No Handphone</label>
-                        <input type="number" id="noHPInput" value="{{ Auth::user()->no_telp }}" class="form-control">
-                    </div>
-                </div>
+                </form>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#saveModal">Save</button>
+              <button type="submit" class="btn btn-primary" data-bs-dismiss="modal" form="formProfile">Save</button>
             </div>
           </div>
         </div>
     </div>
 
-    <div class="modal fade" id="saveModal" tabindex="-1" aria-labelledby="saveModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h1 class="modal-title fs-5" id="saveModalLabel">Save Changes ?</h1>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-              Apakah anda yakin ingin menyimpan perubahan ?
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-danger" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#editProfileModal">Cancel</button>
-              <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Save changes</button>
-            </div>
-          </div>
-        </div>
-      </div>
+    <script>
+        function updateProfileImage() {
+            document.getElementById('profile-form').submit();
+        }
+    </script>
 @endsection

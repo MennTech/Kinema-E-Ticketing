@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('image');
             $table->string('nama');
-            $table->integer('stok');
+            $table->enum('status',['Ready', 'Empty']);
             $table->string('harga');
             $table->timestamps();
         });

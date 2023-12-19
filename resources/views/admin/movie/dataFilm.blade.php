@@ -33,7 +33,7 @@
                         <td>{{ $item->durasi }}</td>
                         <td>{{ $item->status }}</td>
                         <td>
-                            <button data-bs-toggle="modal" data-bs-target="#detailsFilmModal" data-details="{{ json_encode($item) }}" class="border-0 bg-transparent">
+                            <button data-bs-toggle="modal" data-bs-target="#detailsFilmModal_{{ $item->id }}" class="border-0 bg-transparent">
                                 <i class="fa-solid fa-circle-info text-primary fa-2x"></i>
                             </button>
                         </td>
@@ -44,7 +44,7 @@
                             <button class="border-0 bg-transparent" data-bs-toggle="modal" data-bs-target="#konfirmasiModal" data-details="{{ json_encode($item) }}"><i class="fa-solid fa-trash text-danger fa-lg"></i></button>
                         </td>
                     </tr>
-                    <div class="modal fade" id="detailsFilmModal" data-bs-keyboard="false" tabindex="-1" aria-labelledby="detailsFilmModalLabel" aria-hidden="true">
+                    <div class="modal fade" id="detailsFilmModal_{{ $item->id }}" data-bs-keyboard="false" tabindex="-1" aria-labelledby="detailsFilmModalLabel" aria-hidden="true">
                         <div class="modal-dialog modal-lg">
                             <div class="modal-content">
                                 <div class="modal-header">

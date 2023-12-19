@@ -40,7 +40,9 @@
                 <p>Belum ada jadwal</p>
             </div>
             <div class="col-6 d-flex justify-content-end">
-                <p class="fw-semibold">Rp {{ number_format('35000') }}</p>
+                @if ($movie->status == "Now Playing")    
+                    <p class="fw-semibold">Rp {{ number_format('35000') }}</p>
+                @endif
             </div>
         </div>
         @endif

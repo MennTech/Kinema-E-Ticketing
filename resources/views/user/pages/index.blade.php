@@ -44,7 +44,7 @@
                 @foreach ($movie as $item)
                     @if ($item->status == "Coming Soon")
                         <div class="col-3 mt-3 mb-2 float-start">
-                            <a href=""><img src="poster_film/{{ $item->poster }}" alt="" class="w-100"></a>
+                            <a href="/detail/{{ $item->id }}"><img src="poster_film/{{ $item->poster }}" alt="" class="w-100"></a>
                             <h5 class="text-center mt-2">{{ $item->judul_film }}</h5>
                         </div>
                     @endif

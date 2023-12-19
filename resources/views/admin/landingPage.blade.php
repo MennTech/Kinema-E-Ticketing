@@ -73,6 +73,7 @@
                                     <th>Email</th>
                                     <th>No Telp</th>
                                     <th>Create Date</th>
+                                    <th>Status</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -84,6 +85,7 @@
                                     <td>{{ $item->email }}</td>
                                     <td>{{ $item->no_telp }}</td>
                                     <td>{{ date('d-m-Y', strtotime($item->created_at))}}</td>
+                                    <td>{{ $item->active === 1 ? "Active" : "Not Active" }}</td>
                                     <td><button class="btn btn-danger"  data-bs-toggle="modal" data-bs-target="#konfirmasiModal" data-user="{{ json_encode('$item') }}">Delete</button></td>
                                 </tr>
                                 <div class="modal fade" id="konfirmasiModal" tabindex="-1" aria-labelledby="konfirmasiModalLabel" aria-hidden="true">

@@ -27,19 +27,39 @@
                         @csrf
                         <div class="form-group">
                             <label for="username">Username</label>
-                            <input type="text" name="username" placeholder="Username" class="form-control mb-3" id="username" required>
+                            <input type="text" name="username" placeholder="Username" class="form-control @error('username') is-invalid @enderror {{ !$errors->has('username') ? 'mb-3' : '' }}" id="username">
+                            @error('username')
+                                <div class="invalid-feedback mb-3">
+                                    {{ $message }}
+                                </div>
+                            @enderror
                         </div>
                         <div class="form-group">
                             <label for="no_telp">No Telp</label>
-                            <input type="number" name="no_telp" placeholder="No Telp" class="form-control mb-3" id="no_telp" required>
+                            <input type="number" name="no_telp" placeholder="No Telp" class="form-control @error('no_telp') is-invalid @enderror {{ !$errors->has('no_telp') ? 'mb-3' : '' }}" id="no_telp">
+                            @error('no_telp')
+                                <div class="invalid-feedback mb-3">
+                                    {{ $message }}
+                                </div>
+                            @enderror
                         </div>
                         <div class="form-group">
                             <label for="email">Email</label>
-                            <input type="email" name="email" placeholder="Email" class="form-control mb-3" id="email" required>
+                            <input type="email" name="email" placeholder="Email" class="form-control @error('email') is-invalid @enderror {{ !$errors->has('email') ? 'mb-3' : '' }}" id="email">
+                            @error('email')
+                                <div class="invalid-feedback mb-3">
+                                    {{ $message }}
+                                </div>
+                            @enderror
                         </div>
                         <div class="form-group">
                             <label for="password">Password</label>
-                            <input type="password" name="password" placeholder="Password" class="form-control mb-3" id="password" required>
+                            <input type="password" name="password" placeholder="Password" class="form-control @error('password') is-invalid @enderror {{ !$errors->has('password') ? 'mb-3' : '' }}" id="password">
+                            @error('password')
+                                <div class="invalid-feedback mb-3">
+                                    {{ $message }}
+                                </div>
+                            @enderror
                         </div>
                         <button class="btn fw-bold text-white mb-3"id="button" type="submit">Register</button>
                         <p class="m-0">Sudah Punya Akun ? <a href="/login">Login Disini!</a></p>

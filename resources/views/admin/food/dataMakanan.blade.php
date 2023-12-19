@@ -16,7 +16,7 @@
                         <th>No</th>
                         <th>Gambar Makanan</th>
                         <th>Nama Makanan</th>
-                        <th>Stok</th>
+                        <th>Status</th>
                         <th>Harga</th>
                         <th>Action</th>
                     </tr>
@@ -27,7 +27,7 @@
                         <th>{{ $loop->iteration }}</th>
                         <td class="poster_cell"><img src="{{ asset('image_food/'. $item->image) }}" alt="" style="width: 20%"></td>
                         <td>{{ $item->nama }}</td>
-                        <td>{{ $item->stok }}</td>
+                        <td>{{ $item->status }}</td>
                         <td>Rp. {{ number_format($item->harga,0,',') }}</td>
                         <td>
                             <a href="{{ route('food.edit', $item->id) }}" class="button"><i class="fa-solid fa-pen-to-square text-warning fa-lg"></i></a> 

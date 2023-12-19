@@ -24,7 +24,7 @@ class FoodController extends Controller
         $this->validate($request,[
             'nama'=> 'required',
             'harga'=> 'required',
-            'stok'=> 'required',
+            'status'=> 'required',
             'image'=> 'image|required|mimes:jpeg,png,jpg',
         ]);
 
@@ -37,7 +37,7 @@ class FoodController extends Controller
         Food::create([
             'nama'=>$request->nama,
             'harga'=>$request->harga,
-            'stok'=>$request->stok,
+            'status'=>$request->status,
             'image'=> $imagesName,
         ]);
 
@@ -54,7 +54,7 @@ class FoodController extends Controller
         $this->validate($request,[
             'nama'=> 'required',
             'harga'=> 'required',
-            'stok'=> 'required',
+            'status'=> 'required',
             'image'=> 'image|mimes:jpeg,png,jpg',
         ]);
 
@@ -69,7 +69,7 @@ class FoodController extends Controller
         $food->update([
             'nama'=>$request->nama,
             'harga'=>$request->harga,
-            'stok'=>$request->stok,
+            'status'=>$request->status,
             'image'=> $imagesName,
         ]);
         return redirect()->route('food.index')->with('success', 'Data Berhasil Diubah');
