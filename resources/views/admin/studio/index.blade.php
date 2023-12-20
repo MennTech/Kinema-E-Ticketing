@@ -22,23 +22,13 @@
                                 <div class="row">
                                     <div class="col-12">
                                         <label for="inputStudio" class="form-label">Nama Studio</label>
-                                        <input type="text" class="form-control @error('name') is-invalid @enderror inputnamaStudio" id="inputStudio" name="name" value="{{ old('name') }}">
-                                        @error('name')
-                                            <div class="invalid-feedback">
-                                                {{ $message }}
-                                            </div>
-                                        @enderror
+                                        <input type="text" class="form-control inputnamaStudio" id="inputStudio" name="name" value="{{ old('name') }}">
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-12">
                                         <label for="jumlahKursi" class="form-label">Jumlah Kursi</label>
-                                        <input type="number" class="form-control @error('seat') is-invalid @enderror inputJumlahKursi" id="jumlahKursi" name="seat" value="{{ old('seat') }}">
-                                        @error('seat')
-                                            <div class="invalid-feedback">
-                                                {{ $message }}
-                                            </div>
-                                        @enderror
+                                        <input type="number" class="form-control inputJumlahKursi" id="jumlahKursi" name="seat" value="{{ old('seat') }}">
                                     </div>
                                 </div>
                             </form>
@@ -109,23 +99,13 @@
                                         <div class="row">
                                             <div class="col-12">
                                                 <label for="inputStudio" class="form-label">Nama Studio</label>
-                                                <input type="text" class="form-control @error('name') is-invalid @enderror inputNamaStudio" id="inputStudio" name="name" value="{{ old('name', $item->name) }}">
-                                                @error('name')
-                                                    <div class="invalid-feedback">
-                                                        {{ $message }}
-                                                    </div>
-                                                @enderror
+                                                <input type="text" class="form-control inputNamaStudio" id="inputStudio" name="name" value="{{ old('name', $item->name) }}">
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-12">
                                                 <label for="jumlahKursi" class="form-label">Jumlah Kursi</label>
-                                                <input type="number" class="form-control @error('seat') is-invalid @enderror inputJumlahKursi" id="jumlahKursi" name="seat" value="{{ old('seat', $item->seat) }}">
-                                                @error('seat')
-                                                    <div class="invalid-feedback">
-                                                        {{ $message }}
-                                                    </div>
-                                                @enderror
+                                                <input type="number" class="form-control inputJumlahKursi" id="jumlahKursi" name="seat" value="{{ old('seat', $item->seat) }}">
                                             </div>
                                         </div>
                                     </form>
@@ -153,23 +133,25 @@
 
 <script>
     document.addEventListener('DOMContentLoaded', function () {
-        var saveButtons = document.querySelectorAll('.saveButton');
-
-        saveButtons.forEach(function (saveButton) {
-            saveButton.addEventListener('click', function (event) {
+        var saveButtons = document.getElementsByClassName('saveButton');
+        
+        for (var i = 0; i < saveButtons.length; i++) {
+            saveButtons[i].addEventListener('click', function (event) {
                 // Get the parent modal for the clicked button
                 var modal = event.target.closest('.modal');
+                console.log(modal);
 
                 // Find input elements within the modal
                 var namaStudioInput = modal.querySelector('.inputNamaStudio');
                 var jumlahKursiInput = modal.querySelector('.inputJumlahKursi');
 
-                if (namaStudioInput.value.trim() === '' || jumlahKursiInput.value.trim() === '') {
+                // Validasi Input Kosong
+                if (namaStudioInput.value.trim() == '' || jumlahKursiInput.value.trim() == '') {
                     event.preventDefault();
                     alert('Harap isi semua kolom sebelum menyimpan.');
                 }
             });
-        });
+        }
     });
 </script>
 

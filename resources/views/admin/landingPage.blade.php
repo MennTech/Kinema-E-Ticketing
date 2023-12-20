@@ -13,7 +13,7 @@
                         </div>
                         <div class="col-auto pt-3 ms-2">
                             <p>Ticket Sale</p>
-                            <p>100 PCS</p>
+                            <p>{{ $jumlahTiket }} PCS</p>
                         </div>
                     </div>
                 </div>
@@ -23,11 +23,11 @@
                 <div class="card-body">
                     <div class="row inline g-3">
                         <div class="col-4 p-0">
-                            <img src="/img/food.jpg" alt="" class="rounded w-100">
+                            <img src="/img/income.jpg" alt="" class="rounded w-100">
                         </div>
                         <div class="col-auto pt-3">
-                            <p>Food Sale</p>
-                            <p>100 PCS</p>
+                            <p>Income Ticket</p>
+                            <p>Rp {{ number_format($totalPendapatanTiket) }}</p>
                         </div>
                     </div>
                 </div>
@@ -37,11 +37,11 @@
                 <div class="card-body">
                     <div class="row inline g-3">
                         <div class="col-4 p-0">
-                            <img src="/img/income.jpg" alt="" class="rounded w-100">
+                            <img src="/img/food.jpg" alt="" class="rounded w-100">
                         </div>
                         <div class="col-auto pt-3">
-                            <p>Income</p>
-                            <p>Rp 1.000.000</p>
+                            <p>Food Sale</p>
+                            <p>{{ $jumlahMakanan }} PCS</p>
                         </div>
                     </div>
                 </div>
@@ -54,8 +54,8 @@
                             <img src="/img/income.jpg" alt="" class="rounded w-100">
                         </div>
                         <div class="col-auto pt-3">
-                            <p>Income</p>
-                            <p>Rp 1.000.000</p>
+                            <p>Income Food</p>
+                            <p>Rp {{ number_format($totalPendapatanMakanan) }}</p>
                         </div>
                     </div>
                 </div>

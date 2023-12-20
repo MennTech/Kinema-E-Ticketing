@@ -41,7 +41,7 @@
                             <a href="{{ route('movie.edit', $item->id) }}" role="button" class="btn">
                                 <i class="fa-solid fa-pen-to-square text-warning fa-lg"></i>
                             </a>
-                            <button class="border-0 bg-transparent" data-bs-toggle="modal" data-bs-target="#konfirmasiModal" data-details="{{ json_encode($item) }}"><i class="fa-solid fa-trash text-danger fa-lg"></i></button>
+                            <button class="border-0 bg-transparent" data-bs-toggle="modal" data-bs-target="#konfirmasiModal_{{ $item->id }}"><i class="fa-solid fa-trash text-danger fa-lg"></i></button>
                         </td>
                     </tr>
                     <div class="modal fade" id="detailsFilmModal_{{ $item->id }}" data-bs-keyboard="false" tabindex="-1" aria-labelledby="detailsFilmModalLabel" aria-hidden="true">
@@ -74,7 +74,7 @@
                         </div>
                     </div>
 
-                    <div class="modal fade" id="konfirmasiModal" tabindex="-1" aria-labelledby="konfirmasiModalLabel" aria-hidden="true">
+                    <div class="modal fade" id="konfirmasiModal_{{ $item->id }}" tabindex="-1" aria-labelledby="konfirmasiModalLabel" aria-hidden="true">
                         <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">

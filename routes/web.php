@@ -51,12 +51,3 @@ Route::get('/register', function () {
 });
 Route::post('register/action', [RegisterController::class, 'actionRegister'])->name('actionRegister');
 Route::get('register/verify/{verify_key}', [RegisterController::class, 'verify'])->name('verify');
-
-
-// Route::get('/Profile-MyFood', function () {
-//     return view('user/pages/myFood',[
-//         'title' => 'profile-myFood',
-//         'foto_profile' => 'admin2.jpg', 
-//         'name' => 'Trisna Utama',
-//     ]);
-// });

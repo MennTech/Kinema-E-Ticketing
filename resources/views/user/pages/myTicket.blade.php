@@ -20,6 +20,7 @@
                 <div class="card-body">
                   <p>Judul : {{ $item->schedule->movie->judul_film }}</p>
                   <p>Jam Tayang: {{ $item->schedule->time }} WIB</p>
+                  <p>Studio : {{ $item->schedule->studio->name }}</p>
                   <p>Seat: {{ $item->seat }}</p>
                     <hr>
                     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#barcodeModal_{{ $item->id }}">
@@ -32,6 +33,7 @@
               <div class="card-body">
                 <p>Judul : {{ $item->schedule->movie->judul_film }}</p>
                 <p>Jam Tayang: {{ $item->schedule->time }} WIB</p>
+                <p>Studio : {{ $item->schedule->studio->name }}</p>
                 <p>Seat: {{ $item->seat }}</p>
                 <hr>
                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#barcodeModal_{{ $item->id }}">

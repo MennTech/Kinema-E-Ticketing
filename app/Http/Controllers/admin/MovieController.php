@@ -81,6 +81,8 @@ class MovieController extends Controller
             $imagesName = $movie->poster;
         }
 
+        $request->genre = implode(", ", $request->genre);
+
         $movie->update([
             'judul_film'=>$request->judul_film,
             'genre'=>$request->genre,
@@ -93,7 +95,7 @@ class MovieController extends Controller
             'poster'=> $imagesName,
         ]);
 
-        return redirect()->back()->with('success', 'Data berhasil diubah');
+        return redirect()->route('movie.index')->with('success', 'Data berhasil diubah');
     }
 
     public function destroy($id){

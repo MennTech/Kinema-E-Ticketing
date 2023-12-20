@@ -186,17 +186,13 @@
             saveButtons[i].addEventListener('click', function (event) {
                 // Get the parent modal for the clicked button
                 var modal = event.target.closest('.modal');
+                console.log(modal);
 
                 // Find input elements within the modal
                 var namaStudioInput = modal.querySelector('.studioSelect');
                 var judulFilmSelect = modal.querySelector('.judulFilm');
                 var tanggalTayangInput = modal.querySelector('.tanggal');
                 var jamTayangInput = modal.querySelector('.jam');
-
-                console.log(judulFilmSelect.value);
-                console.log(namaStudioInput.value);
-                console.log(tanggalTayangInput.value);
-                console.log(jamTayangInput.value);
 
                 // Validasi Input Kosong
                 if (namaStudioInput.value.trim() == '' || judulFilmSelect.value.trim() == '' || tanggalTayangInput.value.trim() == '' || jamTayangInput.value.trim() == '') {
