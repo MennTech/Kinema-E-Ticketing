@@ -23,9 +23,6 @@ class RegisterController extends Controller
             'password'=>'required|min:6',
             'no_telp'=>'required|numeric|regex:/^08[0-9]{9,11}$/'
         ]);
-
-        $profile_picture = 'user2.jpg';
-
         $str = Str::random(100);
         $user = User::create([
             'email' => $request->email,
@@ -33,8 +30,7 @@ class RegisterController extends Controller
             'password' => Hash::make($request->password), // Hash::make() untuk mengenkripsi password
             'verify_key' => $str,
             'role'=> 'user',
-            'no_telp'=>$request->no_telp,
-            'profile_picture' => $profile_picture
+            'no_telp'=>$request->no_telp
         ]);
 
         $details = [

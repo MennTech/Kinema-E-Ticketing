@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Schedule;
 use App\Models\Movie;
 use App\Models\Studio;
+use Illuminate\Support\Facades\Auth;
 
 class ScheduleController extends Controller
 {
@@ -14,7 +15,11 @@ class ScheduleController extends Controller
         $movies = Movie::where('status', 'Now Playing')->get();
         $studios = Studio::all();
         $schedule = Schedule::with(['movie','studio'])->get();
-        return view('admin.schedule.index', compact('schedule', 'movies', 'studios'));
+        if (Auth::user()->role == 'admin') {
+            return view('admin.schedule.index', compact('schedule', 'movies', 'studios'));
+        } else {
+            return redirect()->route('home');
+        }
     }
 
     public function store(Request $request){

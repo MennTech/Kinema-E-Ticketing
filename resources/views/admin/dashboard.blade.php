@@ -45,7 +45,7 @@
     <div class="l-navbar" id="nav-bar">
       <nav class="nav">
           <div> 
-            <a href="/" class="nav_logo"> <img src="/img/favicon.png" alt="" class="nav_logo-icon">
+            <a href="{{ route('dashboard') }}" class="nav_logo"> <img src="/img/favicon.png" alt="" class="nav_logo-icon">
               <span class="nav_logo-name">Kinema</span> 
             </a>
             <div class="nav_list">

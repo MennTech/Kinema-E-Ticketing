@@ -12,6 +12,11 @@ class OrderFoodController extends Controller
 {
 
     public function index(){
+        if(Auth::check()){
+            if (Auth::user()->role == 'admin') {
+                return redirect()->route('dashboard');
+            } 
+        }
         $foods = OrderFood::where('id_user', Auth::user()->id)->get();
         if($foods->count() <= 0){
             Session::flash('message', 'Anda Belum Membeli Makanan, Silahkan Beli Makanan Yang Tersedia.');

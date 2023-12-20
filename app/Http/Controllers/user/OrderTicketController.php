@@ -12,6 +12,11 @@ use Illuminate\Support\Facades\Session;
 class OrderTicketController extends Controller
 {
     public function choose_seat($id){
+        if(Auth::check()){
+            if (Auth::user()->role == 'admin') {
+                return redirect()->route('dashboard');
+            } 
+        }
         $schedule = Schedule::with('studio')->find($id);
         $seat = OrderTicket::where('id_schedule', $id)->get();
         $maxSeat = $schedule->studio->seat;

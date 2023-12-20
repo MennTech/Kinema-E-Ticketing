@@ -25,7 +25,7 @@
                     @foreach ($food as $item)
                     <tr>
                         <th>{{ $loop->iteration }}</th>
-                        <td class="poster_cell"><img src="{{ asset('image_food/'. $item->image) }}" alt="" style="width: 20%"></td>
+                        <td class="poster_cell"><img src="{{ asset('image_food/'. $item->image) }}" alt="" style="width: 178px; height: 178px;"></td>
                         <td>{{ $item->nama }}</td>
                         <td>{{ $item->status }}</td>
                         <td>Rp. {{ number_format($item->harga,0,',') }}</td>

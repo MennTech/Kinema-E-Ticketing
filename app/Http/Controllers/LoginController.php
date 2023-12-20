@@ -32,14 +32,15 @@ class LoginController extends Controller
                 return redirect()->route('dashboard');
             }
             if($user->active){
-                return redirect('/');
+                return redirect()->route('home');
             } else {
                 Auth::logout();
                 Session::flash('error', 'Akun Anda Belum diverifikasi. Silahkan cek email Anda.');
+                return redirect()->route('login');
             }
         } else {
             Session::flash('error', 'Email atau password salah');
-            return redirect('/login');
+            return redirect()->route('login');
         }
     }
 

@@ -6,16 +6,25 @@ use Illuminate\Http\Request;
 use App\Models\Movie;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\File; 
+use Illuminate\Support\Facades\Auth;
 
 class MovieController extends Controller
 {
     public function index(){
         $movie = Movie::all();
-        return view('admin/movie/dataFilm', compact('movie'));
+        if (Auth::user()->role == 'admin') {
+            return view('admin/movie/dataFilm', compact('movie'));
+        } else {
+            return redirect()->route('home');
+        }
     }
 
     public function create(){
-        return view('admin/movie/tambahFilm');
+        if (Auth::user()->role == 'admin') {
+            return view('admin/movie/tambahFilm');
+        } else {
+            return redirect()->route('home');
+        }
     }
 
     public function store(Request $request){
@@ -56,7 +65,11 @@ class MovieController extends Controller
 
     public function edit($id){
         $movie = Movie::find($id);
-        return view('admin/movie/editFilm', compact('movie'));
+        if (Auth::user()->role == 'admin') {
+            return view('admin/movie/editFilm', compact('movie'));
+        } else {
+            return redirect()->route('home');
+        }
     }
 
     public function update(Request $request, $id){

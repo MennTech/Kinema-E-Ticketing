@@ -6,10 +6,16 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
 class ProfileController extends Controller
 {
 
     public function index(){
+        if(Auth::check()){
+            if (Auth::user()->role == 'admin') {
+                return redirect()->route('dashboard');
+            } 
+        }
         $user = User::where('id', Auth::user()->id)->first();
         return view('user.pages.profile', compact('user'));
     }
@@ -33,6 +39,9 @@ class ProfileController extends Controller
             'profile_picture' => 'required|image|mimes:jpg,jpeg,png|max:2048'
         ]);
         $file = $request->file('profile_picture');
+        if($user->profile_picture != null){
+            File::delete('avatar/' . $user->profile_picture);
+        }
         $fileName = time() . '.' . $file->getClientOriginalExtension();
         $file->move('avatar', $fileName);
         $user->update([

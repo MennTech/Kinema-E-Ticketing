@@ -6,18 +6,27 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Food;
 use Illuminate\Support\Facades\File; 
+use Illuminate\Support\Facades\Auth;
 
 class FoodController extends Controller     
 {
     public function index()
     {
         $food = Food::all();
-        return view('admin.food.dataMakanan', compact('food'));
+        if (Auth::user()->role == 'admin') {
+            return view('admin.food.dataMakanan', compact('food'));
+        } else {
+            return redirect()->route('home');
+        }
     }
 
     public function create()
     {
-        return view('admin.food.tambahMakanan');
+        if (Auth::user()->role == 'admin') {
+            return view('admin.food.tambahMakanan');
+        } else {
+            return redirect()->route('home');
+        }
     }
 
     public function store(Request $request){
@@ -46,7 +55,11 @@ class FoodController extends Controller
 
     public function edit($id){
         $food = Food::find($id);
-        return view('admin.food.editMakanan', compact('food'));
+        if (Auth::user()->role == 'admin') {
+            return view('admin.food.editMakanan', compact('food'));
+        } else {
+            return redirect()->route('home');
+        }
     }
 
     public function update(Request $request, $id){

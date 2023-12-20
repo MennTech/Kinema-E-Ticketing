@@ -27,7 +27,7 @@
                     @foreach ($movie as $item)
                     <tr>
                         <th>{{ $loop->iteration }}</th>
-                        <td class="poster_cell"><img src="{{ asset('poster_film/'.$item->poster) }}" alt="" class="w-25"></td>
+                        <td class="poster_cell" style="width: 200px"><img src="{{ asset('poster_film/'.$item->poster) }}" alt="" style="width: 210px; height: 310px;"></td>
                         <td>{{ $item->judul_film }}</td>
                         <td>{{ $item->genre }}</td>
                         <td>{{ $item->durasi }}</td>

@@ -4,7 +4,7 @@
     <div class="container border my-3" style="max-width: 830px;">
         <div class="row p-2">
             <div class="col-3">
-                <img src="{{ asset('poster_film/' . $movie->poster) }}" class="img-fluid rounded-start" alt="...">
+                <img src="{{ asset('poster_film/' . $movie->poster) }}" class="rounded-start" alt="..." style="width: 180px; height: 260px;margin-top: 26px">
             </div>
             <div class="col-9">
                 <p class="text-primary-emphasis fw-bold fs-4 mt-3 mb-1">{{ $movie->judul_film }}</p>

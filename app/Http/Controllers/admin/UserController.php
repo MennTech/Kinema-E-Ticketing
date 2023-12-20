@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use App\Models\OrderTicket;
 use App\Models\OrderFood;
-use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 class UserController extends Controller
 {
     public function index(){
@@ -15,7 +15,11 @@ class UserController extends Controller
         $jumlahMakanan = OrderFood::count();
         $totalPendapatanTiket = OrderTicket::sum('total_price'); 
         $totalPendapatanMakanan = OrderFood::sum('total');
-        return view('admin.landingPage', compact('user', 'jumlahTiket', 'jumlahMakanan', 'totalPendapatanTiket', 'totalPendapatanMakanan'));
+        if (Auth::user()->role == 'admin') {
+            return view('admin.landingPage', compact('user', 'jumlahTiket', 'jumlahMakanan', 'totalPendapatanTiket', 'totalPendapatanMakanan'));
+        } else {
+            return redirect()->route('home');
+        }
     }
 
     public function destroy($id){

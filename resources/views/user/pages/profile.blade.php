@@ -39,7 +39,11 @@
                                     @csrf
                                     @method('PUT')
                                     <label for="profile-picture" class="profile-picture-container">
-                                        <img src="{{ asset('/avatar/'.$user->profile_picture) }}" alt="profile" id="profile-image" style="border-radius: 50%;width: 185px; height: 185px;">
+                                        @if ($user->profile_picture == null)
+                                            <img src="{{ asset('/avatar/user2.jpg') }}" alt="profile" id="profile-image" style="border-radius: 50%;width: 185px; height: 185px;">
+                                        @else
+                                            <img src="{{ asset('/avatar/'.$user->profile_picture) }}" alt="profile" id="profile-image" style="border-radius: 50%;width: 185px; height: 185px;">
+                                        @endif
                                         <div class="overlay">
                                             <i class="fa-solid fa-image"></i>
                                         </div>

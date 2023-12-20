@@ -19,7 +19,7 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-2">
-                                    <img src="image_food/{{ $item->image }}" alt="" class="w-100">
+                                    <img src="image_food/{{ $item->image }}" alt="" style="width: 109px; height: 109px;">
                                 </div>
                                 <div class="col-10">
                                     <p class="fw-medium">{{ $item->nama }}</p>
