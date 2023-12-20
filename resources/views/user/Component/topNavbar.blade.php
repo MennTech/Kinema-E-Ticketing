@@ -8,7 +8,7 @@
                 <ul class="navbar-nav mx-auto">
                     <li class="nav-item px-3"><a href={{ route('home') }} class="text-decoration-none text-primary-emphasis"><strong>Movie</strong></a></li>
                     <li class="nav-item px-3"><a href="{{ route('food') }}" class="text-decoration-none text-primary-emphasis"><strong>Food</strong></a></li>
-                    <li class="nav-item px-3"><a href="" class="text-decoration-none text-primary-emphasis"><strong>About</strong></a></li>
+                    <li class="nav-item px-3"><a href="{{ route('about') }}" class="text-decoration-none text-primary-emphasis"><strong>About</strong></a></li>
                 </ul>
                 @if (Auth::check())
                     <a href="{{ route('profile') }}" class="text-decoration-none d-flex justify-content-center align-items-center">
