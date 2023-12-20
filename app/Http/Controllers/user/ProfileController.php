@@ -17,7 +17,7 @@ class ProfileController extends Controller
         $user = User::find(Auth::user()->id);
         $this->validate($request, [
             'username' => 'required',
-            'no_telp' => 'required|regex:/^08[0-9]{11,13}$/'
+            'no_telp' => 'required',
         ]);
         $user->update([
             'username' => $request->username,

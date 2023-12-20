@@ -109,13 +109,13 @@
                 {{-- Web --}}
                 <div class="card mt-3 me-3  d-lg-block d-none">
                     <div class="card-body">
-                        <a href="/Profile-MyTicket" class="button text-primary-emphasis text-decoration-none"><i class="fa-solid fa-ticket"></i> My Ticket</a>
+                        <a href="{{ route('my_ticket') }}" class="button text-primary-emphasis text-decoration-none"><i class="fa-solid fa-ticket"></i> My Ticket</a>
                     </div>
                 </div>
                 {{-- Mobile --}}
                 <div class="card mt-3 d-block d-lg-none">
                     <div class="card-body">
-                        <a href="/Profile-MyTicket" class="button text-primary-emphasis text-decoration-none"><i class="fa-solid fa-ticket"></i> My Ticket</a>
+                        <a href="{{ route('my_ticket') }}" class="button text-primary-emphasis text-decoration-none"><i class="fa-solid fa-ticket"></i> My Ticket</a>
                     </div>
                 </div>
             </div>
@@ -125,13 +125,13 @@
                 {{-- Web --}}
                 <div class="card mt-3 me-3  d-lg-block d-none">
                     <div class="card-body">
-                        <a href="/Profile-MyFood" class="button text-primary-emphasis text-decoration-none"><i class="fa-solid fa-pizza-slice"></i> My Food</a>
+                        <a href="{{ route('my_food') }}" class="button text-primary-emphasis text-decoration-none"><i class="fa-solid fa-pizza-slice"></i> My Food</a>
                     </div>
                 </div>
                 {{-- Mobile --}}
                 <div class="card mt-3 d-block d-lg-none">
                     <div class="card-body">
-                        <a href="/Profile-MyFood" class="button text-primary-emphasis text-decoration-none"><i class="fa-solid fa-pizza-slice"></i> My Food</a>
+                        <a href="{{ route('my_food') }}" class="button text-primary-emphasis text-decoration-none"><i class="fa-solid fa-pizza-slice"></i> My Food</a>
                     </div>
                 </div>
             </div>

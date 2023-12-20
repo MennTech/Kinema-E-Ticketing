@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Schedule;
 use App\Models\OrderTicket;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class OrderTicketController extends Controller
 {
@@ -39,5 +41,13 @@ class OrderTicketController extends Controller
                 'message' => 'failed'
             ], 500);
         }
+    }
+
+    public function index(){
+        $ticket = OrderTicket::with('schedule', 'schedule.movie', 'schedule.studio')->where('id_user', Auth::user()->id)->get();
+        if($ticket->count() <= 0){
+            Session::flash('message', 'Anda Belum Membeli Ticket, Silahkan Beli Tiket Untuk Film Yang Tersedia.');
+        }
+        return view('user.pages.myTicket', compact('ticket'));
     }
 }

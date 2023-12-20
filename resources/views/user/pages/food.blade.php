@@ -24,7 +24,8 @@
                                 <div class="col-10">
                                     <p class="fw-medium">{{ $item->nama }}</p>
                                     <p class="fw-medium" >Harga: Rp {{ $item->harga }}</p>
-                                    <input type="hidden" class="harga"  value="{{ $item->harga }}">
+                                    <input type="hidden" class="harga" value="{{ $item->harga }}">
+                                    <input type="hidden" class="nama" value="{{ $item->nama }}">
                                     <hr>
                                     <div class="row">
                                         <div class="col-1 pe-0">
@@ -48,10 +49,9 @@
         <div class="row">
             <div class="col-6">
                 <p class="fs-4 fw-semibold mb-0" id="total">Total: Rp 0</p>
-                <input type="hidden" id="total_harga">
             </div>
             <div class="col-6">
-                <button type="button" class="btn btn-primary mb-0 float-end" id="btnBayar" onclick="bayar({{ Auth::user()->id ?? 0 }})" disabled>Bayar</button>
+                <button type="button" class="btn btn-primary mb-0 float-end" id="btnBayar" onclick="onSubmit({{ Auth::user()->id ?? 0 }})" disabled>Bayar</button>
             </div>
         </div>
         <hr>
@@ -62,18 +62,25 @@
         let decrements = document.querySelectorAll('.decrement');
         let jumlahs = document.querySelectorAll('.jumlah');
         let harga = document.querySelectorAll('.harga');
+        let nama = document.querySelectorAll('.nama');
         let btnBayar = document.querySelector('#btnBayar');
         let totalHarga = document.querySelector('#total');
-        // let totalHargaHidden = document.querySelector('#total_harga');
         let total=0;
+        let food = {};
     
         increments.forEach(function(increment, index) {
             increment.addEventListener('click', function() {
                 jumlahs[index].value = parseInt(jumlahs[index].value) + 1;
                 decrements[index].disabled = false;
                 total = total + (1 * harga[index].value);
+                let foodName = nama[index].value;
+
+                food[foodName] = {
+                    "nama": foodName,
+                    "jumlah": parseInt(jumlahs[index].value),
+                    "harga": parseInt(harga[index].value) * parseInt(jumlahs[index].value)
+                };
                 totalHarga.innerHTML = "Total: Rp " + total;
-                console.log(total);
                 if (total <= 0) {
                     btnBayar.disabled = true;
                 } else {
@@ -87,8 +94,14 @@
                 jumlahs[index].value = parseInt(jumlahs[index].value) - 1;
                 decrements[index].disabled = jumlahs[index].value <= 0;
                 total = total - (harga[index].value * 1);
+                let foodName = nama[index].value;
+
+                food[foodName] = {
+                    "nama": foodName,
+                    "jumlah": parseInt(jumlahs[index].value),
+                    "harga": parseInt(harga[index].value) * parseInt(jumlahs[index].value)
+                };
                 totalHarga.innerHTML = "Total: Rp " + total;
-                console.log(total);
                 if (total <= 0) {
                     btnBayar.disabled = true;
                 } else {
@@ -102,12 +115,29 @@
             decrements[index].disabled = jumlah.value <= 0;
         });
 
-        function bayar(id) {
+        function onSubmit(id) {
             if (id != 0) {
-                //function store
+                $.ajax({
+                    url: "/order_food",
+                    type: "POST",
+                    data: {
+                        "_token": "{{ csrf_token() }}",
+                        "id_user": id,
+                        "food": food,
+                        "total": total
+                    },
+                    success: function(response){
+                        console.log(response);
+                        window.location.href = "{{ route('home') }}";
+                    },
+                    error: function(response){
+                        console.log(response);
+                    }
+                });
             } else {
                 window.location.href = "{{ route('login') }}";
             }
         }
+
     </script>
 @endsection

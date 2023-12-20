@@ -21,7 +21,7 @@ class RegisterController extends Controller
             'email'=>'required|email|unique:users',
             'username'=>'required|min:4',
             'password'=>'required|min:6',
-            'no_telp'=>'required|regex:/^08[0-9]{11,13}$/'
+            'no_telp'=>'required|numeric|regex:/^08[0-9]{9,11}$/'
         ]);
 
         $profile_picture = 'user2.jpg';
