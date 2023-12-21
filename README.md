@@ -3,9 +3,9 @@
 ## Kelas D Kelompok 4
 
 ### Anggota Kelompok:
-- Gabriella Andrea Denada (210711108) - frontend
-- Reyhan (210711212) - frontend
-- Simen Ngui (210711402) - frontend & backend
+- Gabriella Andrea Denada (210711108) - frontend uts
+- Reyhan (210711212) - frontend uts
+- Simen Ngui (210711402) - frontend(uts & uas) & backend uas
 
 ### Username & Password Login:
 - Login User:
