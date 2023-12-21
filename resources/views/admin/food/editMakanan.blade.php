@@ -38,7 +38,7 @@
                 </div>
                 <div class="col-3">
                   <label for="hargaInput" class="form-label">Harga Makanan</label>
-                  <input type="number" class="form-control @error('harga') is-invalid @enderror" id="hargaInput" name="harga" value="{{ old('harga', $food->harga) }}">
+                  <input type="number" class="form-control @error('harga') is-invalid @enderror" id="hargaInput" name="harga" value="{{ old('harga', $food->harga) }}" min="1">
                   @error('harga')
                     <div class="invalid-feedback">
                         {{ $message }}

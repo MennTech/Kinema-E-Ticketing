@@ -20,7 +20,7 @@ return new class extends Migration
             $table->enum('status', ['Now Playing', 'Coming Soon', 'Not Show']);
             $table->integer('ratingUsia');
             $table->string('sutradara');
-            $table->string('actor');
+            $table->longText('actor');
             $table->longText('sinopsis');
             $table->timestamps();
         });

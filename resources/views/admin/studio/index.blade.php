@@ -28,7 +28,7 @@
                                 <div class="row">
                                     <div class="col-12">
                                         <label for="jumlahKursi" class="form-label">Jumlah Kursi</label>
-                                        <input type="number" class="form-control inputJumlahKursi" id="jumlahKursi" name="seat" value="{{ old('seat') }}">
+                                        <input type="number" class="form-control inputJumlahKursi" id="jumlahKursi" name="seat" value="{{ old('seat') }}" min="1">
                                     </div>
                                 </div>
                             </form>
@@ -105,7 +105,7 @@
                                         <div class="row">
                                             <div class="col-12">
                                                 <label for="jumlahKursi" class="form-label">Jumlah Kursi</label>
-                                                <input type="number" class="form-control inputJumlahKursi" id="jumlahKursi" name="seat" value="{{ old('seat', $item->seat) }}">
+                                                <input type="number" class="form-control inputJumlahKursi" id="jumlahKursi" name="seat" value="{{ old('seat', $item->seat) }}" min="1">
                                             </div>
                                         </div>
                                     </form>

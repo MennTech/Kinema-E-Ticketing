@@ -55,7 +55,7 @@
                         </div>
                         <div class="col-2">
                             <label for="durasiInput" class="form-label">Durasi Film</label>
-                            <input type="number" class="form-control @error('durasi') is-invalid @enderror" id="durasiInput" name="durasi" value="{{ old('durasi') }}">
+                            <input type="number" class="form-control @error('durasi') is-invalid @enderror" id="durasiInput" name="durasi" value="{{ old('durasi') }}" min="1">
                             @error('durasi')
                                 <div class="invalid-feedback">
                                     {{ $message }}
@@ -64,7 +64,7 @@
                         </div>
                         <div class="col-2">
                             <label for="usiaInput" class="form-label">Rating Usia</label>
-                            <input type="number" class="form-control @error('ratingUsia') is-invalid @enderror" id="usiaInput" name="ratingUsia" value="{{ old('ratingUsia') }}">
+                            <input type="number" class="form-control @error('ratingUsia') is-invalid @enderror" id="usiaInput" name="ratingUsia" value="{{ old('ratingUsia') }}" min="1">
                             @error('ratingUsia')
                                 <div class="invalid-feedback">
                                     {{ $message }}

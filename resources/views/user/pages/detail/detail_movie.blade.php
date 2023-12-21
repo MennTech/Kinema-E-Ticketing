@@ -19,32 +19,45 @@
             </div>
         </div>
         <hr>
-        @if(isset($schedule))
-        <div class="row">
-            <p class="fw-semibold">KINEMA HOUSE</p>
-            <div class="col-6">
-                <p>{{ $schedule->date }}</p>
-            </div>
-            <div class="col-6 d-flex justify-content-end">
-                <p class="fw-semibold">Rp {{ number_format('35000') }}</p>
-            </div>
-        </div>
-        @foreach($time as $item)
-            <a href="@if(Auth::check()) /choose_seat/{{$item->id}} @else /login @endif" class="btn bg-body-secondary me-2" role="button">{{ date('H:i', strtotime($item->time)) }}</a>
-        @endforeach
-        <hr>
-        @else
-        <div class="row mb-4">
-            <p class="fw-semibold">KINEMA HOUSE</p>
-            <div class="col-6">
-                <p>Belum ada jadwal</p>
-            </div>
-            <div class="col-6 d-flex justify-content-end">
-                @if ($movie->status == "Now Playing")    
+        @if($movie->status == 'Now Playing')
+            @if(isset($schedule))
+            <div class="row">
+                <p class="fw-semibold">KINEMA HOUSE</p>
+                <div class="col-6">
+                    <p>{{ $schedule->date }}</p>
+                </div>
+                <div class="col-6 d-flex justify-content-end">
                     <p class="fw-semibold">Rp {{ number_format('35000') }}</p>
-                @endif
+                </div>
             </div>
-        </div>
+            @php $count_time = 0; @endphp
+            @foreach($time as $item)
+                @if(new DateTime() < new DateTime($schedule->date . ' ' . $item->time))
+                    @php $count_time++; @endphp
+                    <a href="@if(Auth::check()) /choose_seat/{{$item->id}} @else /login @endif" class="btn bg-body-secondary me-2" role="button">{{ date('H:i', strtotime($item->time)) }}</a>
+                @endif
+            @endforeach
+            @if($count_time == 0)
+                <div class="row">
+                    <div class="col-12">
+                        <p>Tidak ada jadwal yang tersedia</p>
+                    </div>
+                </div>
+            @endif
+            <hr>
+            @else
+            <div class="row mb-4">
+                <p class="fw-semibold">KINEMA HOUSE</p>
+                <div class="col-6">
+                    <p>Belum ada jadwal</p>
+                </div>
+                <div class="col-6 d-flex justify-content-end">
+                    @if ($movie->status == "Now Playing")    
+                        <p class="fw-semibold">Rp {{ number_format('35000') }}</p>
+                    @endif
+                </div>
+            </div>
+            @endif
         @endif
     </div>
 @endsection

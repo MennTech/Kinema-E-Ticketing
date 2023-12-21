@@ -27,7 +27,7 @@
                         @csrf
                         <div class="form-group">
                             <label for="username">Username</label>
-                            <input type="text" name="username" placeholder="Username" class="form-control @error('username') is-invalid @enderror {{ !$errors->has('username') ? 'mb-3' : '' }}" id="username">
+                            <input type="text" name="username" placeholder="Username" class="form-control @error('username') is-invalid @enderror {{ !$errors->has('username') ? 'mb-3' : '' }}" id="username" value="{{ old('username') }}">
                             @error('username')
                                 <div class="invalid-feedback mb-3">
                                     {{ $message }}
@@ -36,7 +36,7 @@
                         </div>
                         <div class="form-group">
                             <label for="no_telp">No Telp</label>
-                            <input type="number" name="no_telp" placeholder="No Telp" class="form-control @error('no_telp') is-invalid @enderror {{ !$errors->has('no_telp') ? 'mb-3' : '' }}" id="no_telp">
+                            <input type="number" name="no_telp" placeholder="No Telp" class="form-control @error('no_telp') is-invalid @enderror {{ !$errors->has('no_telp') ? 'mb-3' : '' }}" id="no_telp" value="{{ old('no_telp') }}">
                             @error('no_telp')
                                 <div class="invalid-feedback mb-3">
                                     {{ $message }}
@@ -45,7 +45,7 @@
                         </div>
                         <div class="form-group">
                             <label for="email">Email</label>
-                            <input type="email" name="email" placeholder="Email" class="form-control @error('email') is-invalid @enderror {{ !$errors->has('email') ? 'mb-3' : '' }}" id="email">
+                            <input type="email" name="email" placeholder="Email" class="form-control @error('email') is-invalid @enderror {{ !$errors->has('email') ? 'mb-3' : '' }}" id="email" value="{{ old('email') }}">
                             @error('email')
                                 <div class="invalid-feedback mb-3">
                                     {{ $message }}
@@ -54,7 +54,7 @@
                         </div>
                         <div class="form-group">
                             <label for="password">Password</label>
-                            <input type="password" name="password" placeholder="Password" class="form-control @error('password') is-invalid @enderror {{ !$errors->has('password') ? 'mb-3' : '' }}" id="password">
+                            <input type="password" name="password" placeholder="Password" class="form-control @error('password') is-invalid @enderror {{ !$errors->has('password') ? 'mb-3' : '' }}" id="password" value="{{ old('password') }}">
                             @error('password')
                                 <div class="invalid-feedback mb-3">
                                     {{ $message }}

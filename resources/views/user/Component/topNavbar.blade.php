@@ -4,7 +4,10 @@
             <a class="navbar-brand" href="/" >
                 <img class="nav_logo"src="/img/kinema-copy.png" alt="" style="width: 105px">
             </a>
-            <div class="navbar-collapse">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mx-auto">
                     <li class="nav-item px-3"><a href="{{ route('home') }}" class="text-decoration-none text-primary-emphasis" style="font-size: 17px"><strong>Movie</strong></a></li>
                     <li class="nav-item px-3"><a href="{{ route('food') }}" class="text-decoration-none text-primary-emphasis" style="font-size: 17px"><strong>Food</strong></a></li>

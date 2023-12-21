@@ -69,7 +69,7 @@
                 <div class="card mt-3 d-block d-lg-none">
                     <div class="card-body">
                         <div class="row d-flex justify-content-center">
-                            <img src="{{ asset('/avatar/'.$user->profile_picture) }}" alt="profile" class="rounded-circle w-100">
+                            <img src="{{ asset('/avatar/'.$user->profile_picture) }}" alt="profile" style="border-radius: 50%; width: 270px; height: 270px;">
                         </div>
                         <div class="row d-flex justify-content-between mt-3">
                             <div class="col-6">
@@ -174,7 +174,7 @@
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-              <button type="submit" class="btn btn-primary" data-bs-dismiss="modal" form="formProfile">Save</button>
+              <button type="submit" class="btn btn-primary" form="formProfile">Save</button>
             </div>
           </div>
         </div>
@@ -184,5 +184,22 @@
         function updateProfileImage() {
             document.getElementById('profile-form').submit();
         }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            var formProfile = document.getElementById('formProfile');
+
+            formProfile.addEventListener('submit', function (event) {
+            var usernameInput = document.getElementById('usernameInput');
+            var noHPInput = document.getElementById('noHPInput');
+
+            if (usernameInput.value.trim() === '' || noHPInput.value.trim() === '') {
+                alert('Username and No Handphone cannot be empty.');
+                event.preventDefault();
+            }else if (!/^(08)\d{10}$/.test(noHPInput.value)) {
+                alert('Invalid phone number format. It should start with "08" and have 12 digits.');
+                event.preventDefault();
+            }
+            });
+        });
     </script>
 @endsection

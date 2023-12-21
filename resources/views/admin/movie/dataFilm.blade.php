@@ -54,7 +54,7 @@
                                 <div class="modal-body" style="background-color: #F2F7FF">
                                     <div class="row g-2">
                                         <div class="col-3">
-                                            <img src="{{ asset('poster_film/'.$item->poster) }}" alt="" class="w-100">
+                                            <img src="{{ asset('poster_film/'.$item->poster) }}" alt="" style="width: 185px; height: 285px">
                                         </div>
                                         <div class="col-9">
                                             <p class="mb-1">Status: {{ $item->status }}</p>

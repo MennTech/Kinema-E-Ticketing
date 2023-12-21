@@ -55,6 +55,13 @@
             </div>
         </div>
         <hr>
+        <div class="toast-container position-fixed top-0 end-0 p-3">
+            <div id="liveToastFood" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+                <div class="toast-body bg-success text-white">
+                    <i class="fa fa-check text-white"></i> Berhasil Beli Makanan
+                </div>
+            </div>
+        </div>
     </div>
 
     <script>
@@ -128,7 +135,7 @@
                     },
                     success: function(response){
                         console.log(response);
-                        window.location.href = "{{ route('home') }}";
+                        window.location.href = "{{ route('my_food') }}";
                     },
                     error: function(response){
                         console.log(response);
@@ -139,5 +146,14 @@
             }
         }
 
+        const toastTrigger = document.getElementById('btnBayar')
+        const toastLiveExample = document.getElementById('liveToastFood')
+
+        if (toastTrigger) {
+            const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExample)
+            toastTrigger.addEventListener('click', () => {
+                toastBootstrap.show()
+            })
+        }
     </script>
 @endsection

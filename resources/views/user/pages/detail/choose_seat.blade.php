@@ -45,6 +45,13 @@
         <div class="d-flex justify-content-center mb-3">
             <button class="btn btn-primary" id="checkout" onclick="onSubmit()" disabled>Checkout</button>
         </div>
+        <div class="toast-container position-fixed top-0 end-0 p-3">
+            <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+                <div class="toast-body bg-success text-white">
+                    <i class="fa fa-check text-white"></i> Berhasil Beli Ticket
+                </div>
+            </div>
+        </div>
     </div>
     <script>
         const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
@@ -85,7 +92,7 @@
                 },
                 success: function(response){
                     console.log(response);
-                    window.location.href = "/detail/{{ $schedule->id_movie }}";
+                    window.location.href = "{{ route('my_ticket') }}";
                 },
                 error: function(response){
                     console.log(response);
@@ -132,5 +139,15 @@
         });
 
         updateSelectedCount();
+
+        const toastTrigger = document.getElementById('checkout')
+        const toastLiveExample = document.getElementById('liveToast')
+
+        if (toastTrigger) {
+            const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExample)
+            toastTrigger.addEventListener('click', () => {
+                toastBootstrap.show()
+            })
+        }
     </script>
 @endsection

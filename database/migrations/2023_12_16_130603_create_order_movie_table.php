@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('order_movie', function (Blueprint $table) {
+        Schema::create('order_ticket', function (Blueprint $table) {
             $table->id();
             $table->foreignId('id_user')->references('id')->on('users')->onDelete('cascade');
             $table->foreignId('id_schedule')->references('id')->on('schedule')->onDelete('cascade');
