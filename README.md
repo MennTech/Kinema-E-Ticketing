@@ -9,7 +9,7 @@
 
 ### Username & Password Login:
 - Login User:
-    - Email: mapino7834@astegol.com
+    - Email: sejefiy162@avucon.com
     - Password: 123456
 - Login Admin:
   -  Email: admin@gmail.com
