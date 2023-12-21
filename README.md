@@ -10,7 +10,7 @@
 ### Username & Password Login:
 - Login User:
     - Email: sejefiy162@avucon.com
-    - Password: 123456
+    - Password: sejef123
 - Login Admin:
   -  Email: admin@gmail.com
   -  Password: admin
