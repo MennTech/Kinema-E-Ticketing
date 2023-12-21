@@ -86,9 +86,9 @@
                                     <td>{{ $item->no_telp }}</td>
                                     <td>{{ date('d-m-Y', strtotime($item->created_at))}}</td>
                                     <td>{{ $item->active === 1 ? "Active" : "Not Active" }}</td>
-                                    <td><button class="btn btn-danger"  data-bs-toggle="modal" data-bs-target="#konfirmasiModal" data-user="{{ json_encode('$item') }}">Delete</button></td>
+                                    <td><button class="btn btn-danger"  data-bs-toggle="modal" data-bs-target="#konfirmasiModal_{{ $item->id }}">Delete</button></td>
                                 </tr>
-                                <div class="modal fade" id="konfirmasiModal" tabindex="-1" aria-labelledby="konfirmasiModalLabel" aria-hidden="true">
+                                <div class="modal fade" id="konfirmasiModal_{{ $item->id }}" tabindex="-1" aria-labelledby="konfirmasiModalLabel" aria-hidden="true">
                                     <div class="modal-dialog">
                                       <div class="modal-content">
                                         <div class="modal-header">

@@ -31,10 +31,10 @@
                         <td>Rp. {{ number_format($item->harga,0,',') }}</td>
                         <td>
                             <a href="{{ route('food.edit', $item->id) }}" class="button"><i class="fa-solid fa-pen-to-square text-warning fa-lg"></i></a> 
-                            <button class="border-0 bg-transparent" data-bs-toggle="modal" data-bs-target="#konfirmasiModal" data-food="{{ json_encode($item) }}"><i class="fa-solid fa-trash text-danger fa-lg"></i></button>
+                            <button class="border-0 bg-transparent" data-bs-toggle="modal" data-bs-target="#konfirmasiModal_{{ $item->id }}"><i class="fa-solid fa-trash text-danger fa-lg"></i></button>
                         </td>
                     </tr>
-                    <div class="modal fade" id="konfirmasiModal" tabindex="-1" aria-labelledby="konfirmasiModalLabel" aria-hidden="true">
+                    <div class="modal fade" id="konfirmasiModal_{{ $item->id }}" tabindex="-1" aria-labelledby="konfirmasiModalLabel" aria-hidden="true">
                         <div class="modal-dialog">
                           <div class="modal-content">
                             <div class="modal-header">
